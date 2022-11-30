@@ -10,7 +10,7 @@ baseurl: ''
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: zh-CN
 
 # Additional parameters for datetime localization, optional. › https://github.com/iamkun/dayjs/tree/dev/src/locale
 prefer_datetime_locale:
@@ -21,18 +21,18 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 武大路飞的博客                          # the main title
+title: 付濛的博客                          # the main title
 
-tagline: 郭沫郭沫若~   # it will display as the sub-title
+tagline: 我的研究生杂记   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  武大路飞的博客
+  付濛的博客
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://whuwangyong.github.io'
+url: 'https://fumeng6.github.io'
 
 github:
-  username: whuwangyong             # change to your github username
+  username: fumeng             # change to your github username
 
 # twitter:
 #   username: twitter_username            # change to your twitter username
@@ -40,8 +40,8 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Wang Yong
-  email: whuwangyong@gmail.com             # change to your email address
+  name: fu meng
+  email: 6mengfu@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username      # change to your twitter homepage
@@ -50,7 +50,7 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: googled04f27d52767f531.html               # fill in to your verification string
+google_site_verification: google74fd8895e0959107.html               # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -95,7 +95,7 @@ comments:
     shortname:    # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-    repo: whuwangyong/whuwangyong.github.io        # <gh-username>/<repo>
+    repo: fumeng6/fumeng6.github.io        # <gh-username>/<repo>
     issue_term: title  # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
