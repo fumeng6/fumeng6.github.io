@@ -19,7 +19,7 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 天圣教主                          # the main title
+title: 付濛                          # the main title
 
 tagline: 我的研究生杂记   # it will display as the sub-title
 
@@ -38,7 +38,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: 天圣教主
+  name: 付濛
   email: 6mengfu@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
