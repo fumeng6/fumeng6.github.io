@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Created By http://www.zhetao.com/sitemapcreator,  URLs: 13 Generated at: 2023-04-17 18:28:53 -->
+
+  <url>
+    <loc>https://fumeng6.github.io/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/categories/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/tags/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/archives/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/about/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/feed.xml</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/posts/win11%E4%B8%8Bwsl%E7%9A%84%E5%AE%89%E8%A3%85/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/posts/410%E5%92%8C660%E7%95%8C%E9%9D%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A4%87%E5%BF%98/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/tags/d410%E5%92%8Cd660/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/tags/wsl/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://fumeng6.github.io/categories/%E6%9D%82%E8%AE%B0/</loc>
+    <priority>0.94</priority>
+  </url>
+
+</urlset>
