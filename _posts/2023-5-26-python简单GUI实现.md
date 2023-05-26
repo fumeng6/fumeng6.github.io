@@ -128,17 +128,17 @@ render_with_liquid: false
 
 1. 首先，确保你已经安装了PyInstaller。如果没有安装，可以使用pip命令进行安装：
 
-  ```powershell
-  pip install pyinstaller
-  ```
+    ```powershell
+    pip install pyinstaller
+    ```
 
 2. 打开命令行终端，并进入你的程序所在的目录。
 
 3. 在命令行中运行以下命令，将你的Python程序打包为可执行文件：
 
-  ```powershell
-  pyinstaller --onefile your_script.py
-  ```
+    ```powershell
+    pyinstaller --onefile your_script.py
+    ```
 
   请确保将`your_script.py`替换为你的实际脚本文件名。
 
@@ -150,9 +150,9 @@ render_with_liquid: false
 
 例如，如果你的程序依赖于`numpy`库，但PyInstaller没有正确识别到它，你可以运行以下命令手动添加：
 
-  ```powershell
-  pyinstaller --onefile --hidden-import=numpy your_script.py
-  ```
+```powershell
+pyinstaller --onefile --hidden-import=numpy your_script.py
+```
 
 这样PyInstaller会将`numpy`库打包到可执行文件中。
 
