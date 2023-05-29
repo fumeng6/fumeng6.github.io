@@ -140,7 +140,7 @@ render_with_liquid: false
     pyinstaller --onefile your_script.py
     ```
 
-  请确保将`your_script.py`替换为你的实际脚本文件名。
+    请确保将`your_script.py`替换为你的实际脚本文件名。
 
 4. 执行以上命令后，PyInstaller将会在当前目录下创建一个`dist`文件夹，其中包含了打包好的可执行文件和其他必要的文件。
 
