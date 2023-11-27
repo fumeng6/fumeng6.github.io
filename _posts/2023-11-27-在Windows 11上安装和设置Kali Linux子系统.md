@@ -83,16 +83,16 @@ sudo apt install -y kali-win-kex
 - 带有声音的窗口模式下的高级 Win-KeX - Kali 图标并在 kali 主目录中启动：
 
    将图标复制到你的 Windows 图片目录，并将图标和启动目录添加到你的Windows Terminal配置中：kali-menu.png
-   ```
-   {
-         "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-         "hidden": false,
-         "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-         "name": "Win-KeX",
-         "commandline": "wsl -d kali-linux kex --wtstart -s",
-         "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-   },
-   ```
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+      "hidden": false,
+      "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --wtstart -s",
+      "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
+```
 - 带声音的无缝模式下的基本 Win-KeX：
 ```
 {
@@ -105,15 +105,15 @@ sudo apt install -y kali-win-kex
 - 带声音的无缝模式下的高级 Win-KeX - Kali 图标并在 kali 主目录中启动：
 
    将图标复制到你的 Windows 图片目录，并将图标和启动目录添加到你的Windows Terminal配置中：kali-menu.png
-   ```
-   {
-         "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-         "hidden": false,
-         "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-         "name": "Win-KeX",
-         "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
-         "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-   },
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+      "hidden": false,
+      "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
+      "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
    ```
 - 增强会话模式下带声音的基本 Win-KeX：
 ```
@@ -127,16 +127,16 @@ sudo apt install -y kali-win-kex
 - 增强会话模式下的高级 Win-KeX 带声音 - Kali 图标并在 kali 主目录中启动：
 
    将图标复制到你的 Windows 图片目录，并将图标和启动目录添加到你的Windows Terminal配置中：kali-menu.png
-   ```
-   {
-         "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
-         "hidden": false,
-         "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-         "name": "Win-KeX",
-         "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
-         "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-   },
-   ```
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
+      "hidden": false,
+      "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
+      "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
+```
 ### 运行Kali Linux
 
 安装后，您可以通过命令提示符使用`kali`、`wsl --distribution kali-linux`或从开始菜单点击Kali Linux来启动它。
