@@ -136,7 +136,7 @@ sudo apt install -y kali-win-kex
          "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
          "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
    },
-```
+   ```
 ### 运行Kali Linux
 
 安装后，您可以通过命令提示符使用`kali`、`wsl --distribution kali-linux`或从开始菜单点击Kali Linux来启动它。
