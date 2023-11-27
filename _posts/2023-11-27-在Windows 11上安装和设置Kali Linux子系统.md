@@ -137,3 +137,38 @@ Kali WSL 内部：`kex --sl -s`
 
 安装后，您可以通过命令提示符使用`kali`、`wsl --distribution kali-linux`或从开始菜单点击Kali Linux来启动它。
 
+## 迁移子系统
+
+若需要将子系统从默认安装位置迁移至其他位置，可以按如下流程操作：
+
+1. 查看安装的系统
+```
+wsl -l -v
+```
+2. 导出kali子系统到D盘压缩文件
+```
+wsl --export kali-linux D:\kali-linux.tar
+```
+
+3. 卸载系统中当前运行的版本
+```
+wsl --unregister kali-linux
+```
+4. 重新导入并在指定位置安装kali子系统
+```
+wsl --import kali-linux D:\WSL\kali-linux D:\kali-linux.tar --version 2
+```
+5. 设置默认登陆用户为安装时用户名
+```
+kali-linux config --default-user <username>
+```
+6. 删除tar文件
+```
+del D:\kali-linux.tar
+wsl -s kali-linux
+```
+
+当迁移完毕后，子系统启动时的默认用户会换为`root`账户，如果想改为原本的用户账户，在终端输入如下命令：
+```
+kali config --default-user <original name>
+```
