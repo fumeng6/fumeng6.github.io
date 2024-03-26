@@ -103,7 +103,7 @@ plt.show()
 ```python
 axs = plt.figure(constrained_layout=True).subplot_mosaic(
     """
-    AAB
+    ABB
     ACC
     """
 )
