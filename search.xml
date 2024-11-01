@@ -216,33 +216,6 @@
     
     
     <entry>
-      <title>hello world</title>
-      <link href="/posts/hello%20world/"/>
-      <url>/posts/hello%20world/</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我的建站日记">这是我的建站日记</h2><h3 id="日记第一篇">日记第一篇</h3><p>很高兴遇见你😀</p><p>记得要多看<a href="https://hexo.io/docs/">hexo的官方文档</a>哦😊</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 建站日记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> Blog </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Markdown语法与外挂标签写法汇总</title>
       <link href="/posts/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/"/>
       <url>/posts/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/</url>
@@ -262,6 +235,33 @@
             <tag> Markdown </tag>
             
             <tag> 外挂标签 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hello world</title>
+      <link href="/posts/hello%20world/"/>
+      <url>/posts/hello%20world/</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是我的建站日记">这是我的建站日记</h2><h3 id="日记第一篇">日记第一篇</h3><p>很高兴遇见你😀</p><p>记得要多看<a href="https://hexo.io/docs/">hexo的官方文档</a>哦😊</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> Blog </tag>
             
         </tags>
       
@@ -326,31 +326,6 @@
     
     
     <entry>
-      <title>机器学习入门指南</title>
-      <link href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"/>
-      <url>/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</url>
-      
-        <content type="html"><![CDATA[<p>机器学习的世界是多彩而广阔的，对于初学者来说，拥有一个清晰的学习路径是至关重要的。以下是为零基础纯小白的初学者定制的学习计划，旨在帮助初学者在数周到数月内建立起机器学习的知识体系，打下坚实的基础，为未来深入的学术研究做好准备。</p><h2 id="每月学习目标概览">每月学习目标概览</h2><ul><li><strong>第一个月</strong>：掌握Python编程基础和数学基础。</li><li><strong>第二个月</strong>：理解并能处理数据，学习机器学习的基本理论。</li><li><strong>第三个月</strong>：通过项目实践加深理解，开始接触深度学习。</li></ul><p>每周安排适量的学习任务，保证有足够的时间进行实践和复习。建议初学者在每个阶段结束时，至少完成一个相关的实践项目，以验证所学知识。通过实践加深对理论的理解，同时积累项目经验，为未来的学术研究打下坚实的基础。</p><h2 id="第一月：编程基础与数学基础">第一月：编程基础与数学基础</h2><p><strong>学习目标</strong>：</p><ul><li>掌握Python编程的基本知识。</li><li>理解线性代数与概率统计的基础概念。</li></ul><p><strong>学习建议</strong>：</p><ul><li>每天安排固定时间学习编程。</li><li>利用在线资源进行自我测试，巩固数学概念。</li></ul><h3 id="第1周：Python编程入门">第1周：Python编程入门</h3><ul><li>中文资源：<a href="https://www.runoob.com/python/python-tutorial.html">菜鸟教程Python基础</a></li><li>英文资源：<a href="https://www.codecademy.com/learn/learn-python-3">Codecademy Python 课程</a></li></ul><h3 id="第2周：Python高级概念">第2周：Python高级概念</h3><ul><li>中文资源：<a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528">廖雪峰的Python进阶</a></li></ul><h3 id="第3周：数学基础-线性代数">第3周：数学基础-线性代数</h3><ul><li>中文资源：<a href="https://zh.khanacademy.org/math/linear-algebra">可汗学院线性代数</a></li><li>英文资源：<a href="https://www.khanacademy.org/math/linear-algebra">Khan Academy’s Linear Algebra</a></li></ul><h3 id="第4周：数学基础-概率与统计">第4周：数学基础-概率与统计</h3><ul><li>中文资源：<a href="https://zh.khanacademy.org/math/statistics-probability">可汗学院概率统计</a></li><li>英文资源：<a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy’s Statistics &amp; Probability</a></li></ul><h2 id="第二月：数据处理与机器学习理论">第二月：数据处理与机器学习理论</h2><p><strong>学习目标</strong>：</p><ul><li>学会使用NumPy和Pandas进行数据处理。</li><li>掌握数据可视化的基本技巧。</li><li>了解机器学习的基本概念和算法。</li></ul><p><strong>学习建议</strong>：</p><ul><li>在学习数据处理时，尝试用真实数据集练习。</li><li>观看视频课程并跟随练习，加深对机器学习概念的理解。</li></ul><h3 id="第5周：数据处理基础">第5周：数据处理基础</h3><ul><li><strong>NumPy</strong>：学习如何进行数值计算。<ul><li>英文资源：<a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy Official Guide</a></li><li>中文资源：<a href="https://www.numpy.org.cn/">NumPy中文文档</a></li></ul></li><li><strong>Pandas</strong>：学习如何处理和分析数据。<ul><li>英文资源：<a href="https://pandas.pydata.org/docs/getting_started/index.html">Pandas Official Documentation</a></li><li>中文资源：<a href="https://www.pypandas.cn/docs/getting_started/">Pandas中文文档</a></li></ul></li></ul><h3 id="第6周：数据可视化">第6周：数据可视化</h3><ul><li><strong>Matplotlib</strong>：学习如何制作图表和数据可视化。<ul><li>英文资源：<a href="https://matplotlib.org/stable/tutorials/index.html">Matplotlib Tutorials</a></li><li>中文资源：<a href="https://www.matplotlib.org.cn/">Matplotlib中文文档</a></li></ul></li><li><strong>Seaborn</strong>：学习如何制作统计图形。<ul><li>英文资源：<a href="https://seaborn.pydata.org/tutorial.html">Seaborn Official Guide</a></li><li>中文资源：<a href="https://seaborn.pydata.org.cn/">Seaborn中文指南</a></li></ul></li></ul><h3 id="第7-8周：机器学习基础">第7-8周：机器学习基础</h3><ul><li><strong>Coursera机器学习课程</strong>：<br>这是Coursera上的一门机器学习课程，由吴恩达教授讲授，是机器学习入门的首选课程，涵盖了机器学习的基本概念、原理和方法，包括线性回归、逻辑回归、神经网络、支持向量机、聚类、降维、异常检测、推荐系统等。这门课程使用Octave语言进行编程实践，可以帮助学习者理解算法的原理和实现，同时也可以使用Python或其他语言进行编程实践。这门课程适合有一定数学和编程基础的初学者，可以作为机器学习的入门课程。<ul><li>英文资源：<a href="https://www.coursera.org/learn/machine-learning">Machine Learning by Andrew Ng</a></li><li>中文资源：<a href="https://study.163.com/course/courseMain.htm?courseId=1210076550">吴恩达-机器学习</a>（Machine Learning by Andrew Ng的带中文字幕搬运）</li><li>补充资源：<br><a href="https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes">吴恩达-机器学习的中文笔记及作业代码</a></li></ul></li><li><strong>CS229: Machine Learning</strong>：<br>这是斯坦福大学的一门机器学习课程，由吴恩达教授讲授，与Coursera上的《机器学习》课程相似，但是有更多的数学要求和公式的推导，难度稍高一些。这门课程对机器学习和统计模式识别进行了广泛的介绍，包括监督学习、无监督学习、学习理论、强化学习和自适应控制等。这门课程使用Octave语言进行编程实践，可以帮助学习者深入理解算法的原理和实现，同时也可以使用其他语言进行编程实践。这门课程适合有较好的数学和编程基础的进阶学习者，可以作为机器学习的进阶课程。<ul><li>英文资源：<a href="https://cs229.stanford.edu/">CS229: Machine Learning</a></li><li>中文资源：<a href="https://www.bilibili.com/video/BV1JE411w7Ub/?share_source=copy_web&amp;vd_source=a34314d2067d0db370d53dbc6f26d8d0">CS229: Machine Learning</a>（带机翻的中文字幕）</li><li>补充资源：<a href="https://github.com/Kivy-CN/Stanford-CS-229">CS229中文讲义</a>、<a href="https://github.com/afshinea/stanford-cs-229-machine-learning">CS229速查表</a>、<a href="https://github.com/Sierkinhane/CS229-ML-Implementation">CS229作业代码</a></li></ul></li></ul><h2 id="第三月：机器学习实践与深入理论">第三月：机器学习实践与深入理论</h2><p><strong>学习目标</strong>：</p><ul><li>学会使用Scikit-learn完成机器学习项目。</li><li>理解深度学习的基础，并开始使用TensorFlow。</li></ul><p><strong>学习建议</strong>：</p><ul><li>参与至少一个Kaggle项目，将所学应用于实际问题。</li><li>通过阅读相关书籍，深化理论知识，并结合在线教程进行实践。</li></ul><h3 id="第9-10周：Scikit-learn与机器学习项目">第9-10周：Scikit-learn与机器学习项目</h3><ul><li><a href="https://scikit-learn.org/stable/user_guide.html">Scikit-learn官方教程</a></li><li><a href="https://www.kaggle.com/learn/overview">Kaggle Learn</a></li></ul><h3 id="第11-12周：深度学习与TensorFlow">第11-12周：深度学习与TensorFlow</h3><ul><li><a href="https://www.tensorflow.org/tutorials">TensorFlow官方教程</a></li><li><a href="http://zh.d2l.ai/">动手学深度学习</a></li></ul><h2 id="推荐书籍">推荐书籍</h2><ul><li><strong>西瓜书</strong>：<a href="https://jingyuexing.github.io/Ebook/Machine_Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E5%91%A8%E5%BF%97%E5%8D%8E.pdf">《机器学习-周志华》</a>西瓜书因为篇幅的限制，涵盖了很多的内容但无法详细的展开讲，对于初学者自学来说实际阅读难度很大。这本书更适合大三以上的理工科本科生和研究生，以及有相似背景且对机器学习感兴趣的读者，入门时学习这本书籍难度稍微偏高了一些。</li><li><strong>南瓜书</strong>：<a href="https://datawhalechina.github.io/pumpkin-book/#/">《机器学习公式详解》</a>南瓜书的所有内容都是以西瓜书的内容为前置知识进行表述的，所以南瓜书的最佳使用方法是以西瓜书为主线，遇到自己推导不出来或者看不懂的公式时再来查阅南瓜书。</li><li><strong>花书</strong>：<a href="https://github.com/exacity/deeplearningbook-chinese">《Deep Learning 深度学习》</a>这本书由深度学习领域的三位权威IanGoodfellow、YoshuaBengio和AaronCourville编写，详细介绍了深度学习的理论基础，适合对深度学习有一定数学和编程基础的读者深入学习。</li><li><strong>蜥蜴书</strong>：<a href="https://github.com/liuzheCSDN/Scikit-Learn/tree/master">《机器学习实战：基于Scikit-Learn和TensorFlow》</a>这本书提供了使用Scikit-Learn和TensorFlow实现机器学习算法的实际指导，适合有编程基础但机器学习知识基础较少的读者。</li><li><strong>另</strong>：<a href="https://github.com/rasbt/python-machine-learning-book-3rd-edition">《Python 机器学习》</a>这本书作为一个全面的教程，详细介绍了使用Python进行机器学习和深度学习的基本技术和原理。它可以作为一个分步的学习资源，也可以作为构建机器学习系统的参考手册。第三版的更新包括了TensorFlow 2和scikit-learn的新特性，以及强化学习和生成对抗网络（GANs）这两种先进的机器学习技术。</li></ul><p>以上书籍都可在<strong>微信读书</strong>中找到。</p><h2 id="在线编程练习与数据集">在线编程练习与数据集</h2><ul><li><a href="https://leetcode-cn.com/">LeetCode</a> - 编程练习</li><li><a href="https://www.kaggle.com/datasets">Kaggle Datasets</a> - 可用于独立项目的数据集</li></ul><h2 id="计算平台">计算平台</h2><p>有的时候我们需要带GPU的平台跑代码，本地性能可能不是很够，推荐两个：</p><ul><li><a href="https://www.kaggle.com/">Kaggle</a>：可以用来当羊毛薅，你可以传自己的dataset上去，也可以用它提供的dataset。</li><li><a href="https://colab.google/">Google Colab</a>：等于一个免费的notebook环境，而且还能用GPU。</li></ul><h2 id="写在最后">写在最后</h2><p>本指南针对的是零基础的纯小白，所列出的工具和资源并不一定适合所有读者，在学习过程中并不一定要严格遵循本指南，若有更好的、更新的、更适合你的课程及书籍，请自行修改学习计划。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> AI相关 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 机器学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>客制化Butterfly</title>
       <link href="/posts/%E5%AE%A2%E5%88%B6%E5%8C%96Butterfly/"/>
       <url>/posts/%E5%AE%A2%E5%88%B6%E5%8C%96Butterfly/</url>
@@ -370,6 +345,31 @@
             <tag> hexo </tag>
             
             <tag> Blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习入门指南</title>
+      <link href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"/>
+      <url>/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<p>机器学习的世界是多彩而广阔的，对于初学者来说，拥有一个清晰的学习路径是至关重要的。以下是为零基础纯小白的初学者定制的学习计划，旨在帮助初学者在数周到数月内建立起机器学习的知识体系，打下坚实的基础，为未来深入的学术研究做好准备。</p><h2 id="每月学习目标概览">每月学习目标概览</h2><ul><li><strong>第一个月</strong>：掌握Python编程基础和数学基础。</li><li><strong>第二个月</strong>：理解并能处理数据，学习机器学习的基本理论。</li><li><strong>第三个月</strong>：通过项目实践加深理解，开始接触深度学习。</li></ul><p>每周安排适量的学习任务，保证有足够的时间进行实践和复习。建议初学者在每个阶段结束时，至少完成一个相关的实践项目，以验证所学知识。通过实践加深对理论的理解，同时积累项目经验，为未来的学术研究打下坚实的基础。</p><h2 id="第一月：编程基础与数学基础">第一月：编程基础与数学基础</h2><p><strong>学习目标</strong>：</p><ul><li>掌握Python编程的基本知识。</li><li>理解线性代数与概率统计的基础概念。</li></ul><p><strong>学习建议</strong>：</p><ul><li>每天安排固定时间学习编程。</li><li>利用在线资源进行自我测试，巩固数学概念。</li></ul><h3 id="第1周：Python编程入门">第1周：Python编程入门</h3><ul><li>中文资源：<a href="https://www.runoob.com/python/python-tutorial.html">菜鸟教程Python基础</a></li><li>英文资源：<a href="https://www.codecademy.com/learn/learn-python-3">Codecademy Python 课程</a></li></ul><h3 id="第2周：Python高级概念">第2周：Python高级概念</h3><ul><li>中文资源：<a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528">廖雪峰的Python进阶</a></li></ul><h3 id="第3周：数学基础-线性代数">第3周：数学基础-线性代数</h3><ul><li>中文资源：<a href="https://zh.khanacademy.org/math/linear-algebra">可汗学院线性代数</a></li><li>英文资源：<a href="https://www.khanacademy.org/math/linear-algebra">Khan Academy’s Linear Algebra</a></li></ul><h3 id="第4周：数学基础-概率与统计">第4周：数学基础-概率与统计</h3><ul><li>中文资源：<a href="https://zh.khanacademy.org/math/statistics-probability">可汗学院概率统计</a></li><li>英文资源：<a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy’s Statistics &amp; Probability</a></li></ul><h2 id="第二月：数据处理与机器学习理论">第二月：数据处理与机器学习理论</h2><p><strong>学习目标</strong>：</p><ul><li>学会使用NumPy和Pandas进行数据处理。</li><li>掌握数据可视化的基本技巧。</li><li>了解机器学习的基本概念和算法。</li></ul><p><strong>学习建议</strong>：</p><ul><li>在学习数据处理时，尝试用真实数据集练习。</li><li>观看视频课程并跟随练习，加深对机器学习概念的理解。</li></ul><h3 id="第5周：数据处理基础">第5周：数据处理基础</h3><ul><li><strong>NumPy</strong>：学习如何进行数值计算。<ul><li>英文资源：<a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy Official Guide</a></li><li>中文资源：<a href="https://www.numpy.org.cn/">NumPy中文文档</a></li></ul></li><li><strong>Pandas</strong>：学习如何处理和分析数据。<ul><li>英文资源：<a href="https://pandas.pydata.org/docs/getting_started/index.html">Pandas Official Documentation</a></li><li>中文资源：<a href="https://www.pypandas.cn/docs/getting_started/">Pandas中文文档</a></li></ul></li></ul><h3 id="第6周：数据可视化">第6周：数据可视化</h3><ul><li><strong>Matplotlib</strong>：学习如何制作图表和数据可视化。<ul><li>英文资源：<a href="https://matplotlib.org/stable/tutorials/index.html">Matplotlib Tutorials</a></li><li>中文资源：<a href="https://www.matplotlib.org.cn/">Matplotlib中文文档</a></li></ul></li><li><strong>Seaborn</strong>：学习如何制作统计图形。<ul><li>英文资源：<a href="https://seaborn.pydata.org/tutorial.html">Seaborn Official Guide</a></li><li>中文资源：<a href="https://seaborn.pydata.org.cn/">Seaborn中文指南</a></li></ul></li></ul><h3 id="第7-8周：机器学习基础">第7-8周：机器学习基础</h3><ul><li><strong>Coursera机器学习课程</strong>：<br>这是Coursera上的一门机器学习课程，由吴恩达教授讲授，是机器学习入门的首选课程，涵盖了机器学习的基本概念、原理和方法，包括线性回归、逻辑回归、神经网络、支持向量机、聚类、降维、异常检测、推荐系统等。这门课程使用Octave语言进行编程实践，可以帮助学习者理解算法的原理和实现，同时也可以使用Python或其他语言进行编程实践。这门课程适合有一定数学和编程基础的初学者，可以作为机器学习的入门课程。<ul><li>英文资源：<a href="https://www.coursera.org/learn/machine-learning">Machine Learning by Andrew Ng</a></li><li>中文资源：<a href="https://study.163.com/course/courseMain.htm?courseId=1210076550">吴恩达-机器学习</a>（Machine Learning by Andrew Ng的带中文字幕搬运）</li><li>补充资源：<br><a href="https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes">吴恩达-机器学习的中文笔记及作业代码</a></li></ul></li><li><strong>CS229: Machine Learning</strong>：<br>这是斯坦福大学的一门机器学习课程，由吴恩达教授讲授，与Coursera上的《机器学习》课程相似，但是有更多的数学要求和公式的推导，难度稍高一些。这门课程对机器学习和统计模式识别进行了广泛的介绍，包括监督学习、无监督学习、学习理论、强化学习和自适应控制等。这门课程使用Octave语言进行编程实践，可以帮助学习者深入理解算法的原理和实现，同时也可以使用其他语言进行编程实践。这门课程适合有较好的数学和编程基础的进阶学习者，可以作为机器学习的进阶课程。<ul><li>英文资源：<a href="https://cs229.stanford.edu/">CS229: Machine Learning</a></li><li>中文资源：<a href="https://www.bilibili.com/video/BV1JE411w7Ub/?share_source=copy_web&amp;vd_source=a34314d2067d0db370d53dbc6f26d8d0">CS229: Machine Learning</a>（带机翻的中文字幕）</li><li>补充资源：<a href="https://github.com/Kivy-CN/Stanford-CS-229">CS229中文讲义</a>、<a href="https://github.com/afshinea/stanford-cs-229-machine-learning">CS229速查表</a>、<a href="https://github.com/Sierkinhane/CS229-ML-Implementation">CS229作业代码</a></li></ul></li></ul><h2 id="第三月：机器学习实践与深入理论">第三月：机器学习实践与深入理论</h2><p><strong>学习目标</strong>：</p><ul><li>学会使用Scikit-learn完成机器学习项目。</li><li>理解深度学习的基础，并开始使用TensorFlow。</li></ul><p><strong>学习建议</strong>：</p><ul><li>参与至少一个Kaggle项目，将所学应用于实际问题。</li><li>通过阅读相关书籍，深化理论知识，并结合在线教程进行实践。</li></ul><h3 id="第9-10周：Scikit-learn与机器学习项目">第9-10周：Scikit-learn与机器学习项目</h3><ul><li><a href="https://scikit-learn.org/stable/user_guide.html">Scikit-learn官方教程</a></li><li><a href="https://www.kaggle.com/learn/overview">Kaggle Learn</a></li></ul><h3 id="第11-12周：深度学习与TensorFlow">第11-12周：深度学习与TensorFlow</h3><ul><li><a href="https://www.tensorflow.org/tutorials">TensorFlow官方教程</a></li><li><a href="http://zh.d2l.ai/">动手学深度学习</a></li></ul><h2 id="推荐书籍">推荐书籍</h2><ul><li><strong>西瓜书</strong>：<a href="https://jingyuexing.github.io/Ebook/Machine_Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E5%91%A8%E5%BF%97%E5%8D%8E.pdf">《机器学习-周志华》</a>西瓜书因为篇幅的限制，涵盖了很多的内容但无法详细的展开讲，对于初学者自学来说实际阅读难度很大。这本书更适合大三以上的理工科本科生和研究生，以及有相似背景且对机器学习感兴趣的读者，入门时学习这本书籍难度稍微偏高了一些。</li><li><strong>南瓜书</strong>：<a href="https://datawhalechina.github.io/pumpkin-book/#/">《机器学习公式详解》</a>南瓜书的所有内容都是以西瓜书的内容为前置知识进行表述的，所以南瓜书的最佳使用方法是以西瓜书为主线，遇到自己推导不出来或者看不懂的公式时再来查阅南瓜书。</li><li><strong>花书</strong>：<a href="https://github.com/exacity/deeplearningbook-chinese">《Deep Learning 深度学习》</a>这本书由深度学习领域的三位权威IanGoodfellow、YoshuaBengio和AaronCourville编写，详细介绍了深度学习的理论基础，适合对深度学习有一定数学和编程基础的读者深入学习。</li><li><strong>蜥蜴书</strong>：<a href="https://github.com/liuzheCSDN/Scikit-Learn/tree/master">《机器学习实战：基于Scikit-Learn和TensorFlow》</a>这本书提供了使用Scikit-Learn和TensorFlow实现机器学习算法的实际指导，适合有编程基础但机器学习知识基础较少的读者。</li><li><strong>另</strong>：<a href="https://github.com/rasbt/python-machine-learning-book-3rd-edition">《Python 机器学习》</a>这本书作为一个全面的教程，详细介绍了使用Python进行机器学习和深度学习的基本技术和原理。它可以作为一个分步的学习资源，也可以作为构建机器学习系统的参考手册。第三版的更新包括了TensorFlow 2和scikit-learn的新特性，以及强化学习和生成对抗网络（GANs）这两种先进的机器学习技术。</li></ul><p>以上书籍都可在<strong>微信读书</strong>中找到。</p><h2 id="在线编程练习与数据集">在线编程练习与数据集</h2><ul><li><a href="https://leetcode-cn.com/">LeetCode</a> - 编程练习</li><li><a href="https://www.kaggle.com/datasets">Kaggle Datasets</a> - 可用于独立项目的数据集</li></ul><h2 id="计算平台">计算平台</h2><p>有的时候我们需要带GPU的平台跑代码，本地性能可能不是很够，推荐两个：</p><ul><li><a href="https://www.kaggle.com/">Kaggle</a>：可以用来当羊毛薅，你可以传自己的dataset上去，也可以用它提供的dataset。</li><li><a href="https://colab.google/">Google Colab</a>：等于一个免费的notebook环境，而且还能用GPU。</li></ul><h2 id="写在最后">写在最后</h2><p>本指南针对的是零基础的纯小白，所列出的工具和资源并不一定适合所有读者，在学习过程中并不一定要严格遵循本指南，若有更好的、更新的、更适合你的课程及书籍，请自行修改学习计划。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
