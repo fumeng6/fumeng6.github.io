@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://fumeng6.github.io/posts/%E7%A0%94%E7%A9%B6%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6/</loc>
+    <loc>https://fumeng6.github.io/posts/%E7%A0%94%E7%A9%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC%E5%AE%8C%E6%95%B4%E6%95%99%E7%A8%8B%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E7%A7%91%E7%A0%94%E6%95%B0%E5%AD%97%E5%8C%96%E7%AE%A1%E7%90%86/</loc>
     
     <lastmod>2025-07-22</lastmod>
     
@@ -257,7 +257,7 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/Python/</loc>
+    <loc>https://fumeng6.github.io/tags/Git/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -271,14 +271,7 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/Git/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/</loc>
+    <loc>https://fumeng6.github.io/tags/Python/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -306,14 +299,28 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/WSL/</loc>
+    <loc>https://fumeng6.github.io/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/Linux/</loc>
+    <loc>https://fumeng6.github.io/tags/GUI%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/Markdown/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -334,14 +341,14 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/Markdown/</loc>
+    <loc>https://fumeng6.github.io/tags/WSL/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
+    <loc>https://fumeng6.github.io/tags/Linux/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -383,7 +390,49 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/tags/GUI%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>https://fumeng6.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E7%A7%91%E7%A0%94%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/Shell%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/Git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fumeng6.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -452,55 +501,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E7%A7%91%E7%A0%94%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/Shell%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/Git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://fumeng6.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -532,14 +532,14 @@
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%A0%94%E7%A9%B6/</loc>
+    <loc>https://fumeng6.github.io/categories/AI%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://fumeng6.github.io/categories/AI%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://fumeng6.github.io/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%A0%94%E7%A9%B6/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
