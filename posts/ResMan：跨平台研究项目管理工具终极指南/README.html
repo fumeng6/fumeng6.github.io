@@ -1,0 +1,240 @@
+<h1>ResMan - 研究项目管理工具</h1>
+<p>一个简洁高效的研究项目管理工具，专为科研工作者设计，提供项目结构化管理、Git版本控制和自动化备份功能。</p>
+<h2 id="✨-核心功能">✨ 核心功能</h2>
+<ul>
+<li><strong>📁 项目管理</strong> - 标准化项目结构，自动创建目录和文件</li>
+<li><strong>🔄 Git集成</strong> - 智能同步代码和文档，本地版本控制</li>
+<li><strong>🛠️ 简化配置</strong> - 自动检查Git配置，简化项目初始化流程</li>
+<li><strong>💾 自动备份</strong> - 定期备份项目数据，防止数据丢失</li>
+<li><strong>📝 研究日志</strong> - 记录研究进展和重要发现</li>
+<li><strong>🧹 文件清理</strong> - 清理临时文件和缓存，保持项目整洁</li>
+</ul>
+<h2 id="🚀-快速开始">🚀 快速开始</h2>
+<h3 id="Windows">Windows</h3>
+<pre><code class="language-powershell"># 下载脚本
+# 设置执行策略
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# 运行脚本（首次运行会自动配置）
+.\resman.ps1 -v
+
+# 创建新项目
+.\resman.ps1 -n &quot;my-research-project&quot;
+</code></pre>
+<h3 id="Linux">Linux</h3>
+<pre><code class="language-bash"># 安装依赖
+sudo apt install jq bc git  # Ubuntu/Debian
+sudo yum install jq bc git  # CentOS/RHEL
+
+# 设置执行权限
+chmod +x resman.sh
+
+# 运行脚本（首次运行会自动配置）
+./resman.sh -v
+
+# 创建新项目
+./resman.sh -n &quot;my-research-project&quot;
+</code></pre>
+<h2 id="📖-使用指南">📖 使用指南</h2>
+<h3 id="基础操作">基础操作</h3>
+<pre><code class="language-bash"># 查看帮助
+resman -h
+
+# 列出所有项目
+resman -l
+
+# 创建新项目（自动Git初始化）
+resman -n &quot;project-name&quot;
+
+# 将现有文件夹转为项目
+resman -i &quot;existing-folder&quot;
+</code></pre>
+<h3 id="日常工作流">日常工作流</h3>
+<pre><code class="language-bash"># 添加研究日志
+resman -j &quot;project-name&quot;
+
+# 同步到Git（代码+文档）
+resman -s &quot;project-name&quot;
+
+# 完整同步（包含结果文件）
+resman -sa &quot;project-name&quot;
+
+# 备份项目
+resman -b &quot;project-name&quot;
+
+# 一键工作流（日志+同步+备份）
+resman -a &quot;project-name&quot;
+</code></pre>
+<h3 id="项目维护">项目维护</h3>
+<pre><code class="language-bash"># 生成项目报告
+resman -r &quot;project-name&quot;
+
+# 清理临时文件
+resman -c &quot;project-name&quot;
+
+# 检查Git状态
+resman -gs
+</code></pre>
+<h2 id="📁-项目结构">📁 项目结构</h2>
+<p>ResMan创建的标准项目结构：</p>
+<pre><code>project-name/
+├── README.md              # 项目说明
+├── research_log.md        # 研究日志
+├── data/
+│   ├── raw/              # 原始数据
+│   ├── processed/        # 处理后数据
+│   └── intermediate/     # 中间数据
+├── code/                 # 代码文件
+├── results/
+│   ├── figures/          # 图表
+│   └── reports/          # 报告
+├── docs/                 # 文档
+├── .gitignore           # Git忽略文件
+├── data_lineage.json    # 数据血缘
+└── .resman              # 项目标识
+</code></pre>
+<h2 id="⚙️-配置说明">⚙️ 配置说明</h2>
+<p>配置文件位置：</p>
+<ul>
+<li><strong>Windows</strong>: <code>%USERPROFILE%\.research_config.json</code></li>
+<li><strong>Linux</strong>: <code>~/.research_config.json</code></li>
+</ul>
+<p>主要配置项：</p>
+<pre><code class="language-json">{
+  &quot;RESEARCH_ROOT&quot;: &quot;/path/to/research&quot;,
+  &quot;BACKUP_ROOT&quot;: &quot;/path/to/backup&quot;,
+  &quot;BACKUP_KEEP_DAYS&quot;: 30,
+  &quot;GIT_AUTO_PUSH&quot;: true
+}
+</code></pre>
+<h2 id="🔧-安装配置">🔧 安装配置</h2>
+<h3 id="依赖要求">依赖要求</h3>
+<p><strong>Windows</strong>:</p>
+<ul>
+<li>PowerShell 5.1+</li>
+<li>Git</li>
+</ul>
+<p><strong>Linux</strong>:</p>
+<ul>
+<li>Bash</li>
+<li>jq, bc, git</li>
+</ul>
+<h3 id="永久安装">永久安装</h3>
+<p><strong>Windows</strong>:</p>
+<pre><code class="language-powershell"># 方法1：添加到PATH
+$env:PATH += &quot;;C:\Tools\ResMan&quot;
+[Environment]::SetEnvironmentVariable(&quot;PATH&quot;, $env:PATH, [EnvironmentVariableTarget]::User)
+
+# 方法2：PowerShell别名
+Add-Content $PROFILE 'Set-Alias resman &quot;C:\Tools\ResMan\resman.ps1&quot;'
+</code></pre>
+<p><strong>Linux</strong>:</p>
+<pre><code class="language-bash"># 1. 推荐将脚本放置在个人bin目录
+mkdir -p ~/bin
+# 将下载的 resman.sh 移动并重命名
+cp resman.sh ~/bin/resman
+chmod +x ~/bin/resman
+
+# 2. 确保 ~/bin 在您的 PATH 环境变量中
+echo 'export PATH=&quot;$HOME/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<h2 id="🤝-Git集成">🤝 Git集成</h2>
+<p>ResMan专注于本地研究流程管理：</p>
+<ol>
+<li><strong>本地Git初始化</strong> - 创建项目时自动初始化本地Git仓库</li>
+<li><strong>智能同步</strong> - 根据文件类型智能选择同步内容</li>
+<li><strong>用户配置</strong> - 自动检查和配置Git用户信息</li>
+<li><strong>版本控制</strong> - 支持本地版本历史管理和备份</li>
+</ol>
+<p><strong>注意</strong>: 远程仓库需要手动创建，然后使用 <code>git remote add origin &lt;url&gt;</code> 连接</p>
+<h2 id="📋-命令参考">📋 命令参考</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td>显示帮助</td>
+<td><code>resman -h</code></td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示版本</td>
+<td><code>resman -v</code></td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>列出项目</td>
+<td><code>resman -l</code></td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>创建新项目</td>
+<td><code>resman -n &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>初始化现有文件夹</td>
+<td><code>resman -i &quot;folder&quot;</code></td>
+</tr>
+<tr>
+<td><code>-j</code></td>
+<td>添加研究日志</td>
+<td><code>resman -j &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>Git同步（基础）</td>
+<td><code>resman -s &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-sa</code></td>
+<td>Git同步（完整）</td>
+<td><code>resman -sa &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>备份项目</td>
+<td><code>resman -b &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>生成报告</td>
+<td><code>resman -r &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>清理文件</td>
+<td><code>resman -c &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-a</code></td>
+<td>自动化流程</td>
+<td><code>resman -a &quot;project&quot;</code></td>
+</tr>
+<tr>
+<td><code>-gs</code></td>
+<td>Git配置信息</td>
+<td><code>resman -gs</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="🐛-常见问题">🐛 常见问题</h2>
+<p><strong>Q: Git初始化失败？</strong><br>
+A: 检查Git用户配置，运行 <code>git config --global user.name</code> 和 <code>git config --global user.email</code></p>
+<p><strong>Q: 如何连接远程仓库？</strong><br>
+A: 项目创建后，手动在GitHub/GitLab等平台创建仓库，然后使用 <code>git remote add origin &lt;url&gt;</code> 连接</p>
+<p><strong>Q: 如何推送到远程仓库？</strong><br>
+A: 连接远程仓库后，使用 <code>git push -u origin main</code> 进行首次推送</p>
+<p><strong>Q: 权限错误？</strong><br>
+A: 确保对目标目录有写权限，Windows用户可能需要以管理员身份运行</p>
+<p><strong>Q: 配置文件损坏？</strong><br>
+A: 删除配置文件重新运行脚本：<code>rm ~/.research_config.json</code></p>
+<hr>
+<p><strong>版本</strong>: 1.0.0 | <strong>作者</strong>: Maoye | <strong>许可证</strong>: MIT</p>

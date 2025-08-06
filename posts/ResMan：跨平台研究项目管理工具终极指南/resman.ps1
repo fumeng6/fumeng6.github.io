@@ -1,4 +1,4 @@
-﻿# =============================================================================
+# =============================================================================
 # 研究项目管理集成脚本 (Windows PowerShell版)
 # 功能: Git同步、数据备份、日志记录、项目管理
 # 作者: Maoye
@@ -29,58 +29,40 @@ function Initialize-Config {
     Write-Host ""
     
     # 获取研究根目录
-    do {
-        $defaultPath = "$env:USERPROFILE\research"
-        $researchRoot = Read-Host "请输入研究项目根目录路径 (默认: $defaultPath)"
-        if ([string]::IsNullOrWhiteSpace($researchRoot)) {
-            $researchRoot = $defaultPath
+    $defaultPath = "$env:USERPROFILE\research"
+    $researchRoot = Read-Host "请输入研究项目根目录路径 (默认: $defaultPath)"
+    if ([string]::IsNullOrWhiteSpace($researchRoot)) {
+        $researchRoot = $defaultPath
+    }
+    
+    # 创建目录（如果不存在）
+    if (-not (Test-Path $researchRoot)) {
+        try {
+            New-Item -ItemType Directory -Path $researchRoot -Force | Out-Null
+            Write-Host "已创建目录: $researchRoot" -ForegroundColor Green
+        } catch {
+            Write-Host "无法创建目录: $researchRoot，请检查权限。" -ForegroundColor Red
+            exit 1
         }
-        
-        # 验证路径
-        if (-not (Test-Path $researchRoot -IsValid)) {
-            Write-Host "路径格式无效，请重新输入。" -ForegroundColor Red
-            continue
-        }
-        
-        # 创建目录（如果不存在）
-        if (-not (Test-Path $researchRoot)) {
-            try {
-                New-Item -ItemType Directory -Path $researchRoot -Force | Out-Null
-                Write-Host "已创建目录: $researchRoot" -ForegroundColor Green
-            } catch {
-                Write-Host "无法创建目录: $researchRoot，请检查权限或选择其他路径。" -ForegroundColor Red
-                continue
-            }
-        }
-        break
-    } while ($true)
+    }
     
     # 获取备份目录
-    do {
-        $defaultBackupPath = "$researchRoot\_backup"
-        $backupRoot = Read-Host "请输入备份目录路径 (默认: $defaultBackupPath)"
-        if ([string]::IsNullOrWhiteSpace($backupRoot)) {
-            $backupRoot = $defaultBackupPath
+    $defaultBackupPath = "$researchRoot\_backup"
+    $backupRoot = Read-Host "请输入备份目录路径 (默认: $defaultBackupPath)"
+    if ([string]::IsNullOrWhiteSpace($backupRoot)) {
+        $backupRoot = $defaultBackupPath
+    }
+    
+    # 创建目录（如果不存在）
+    if (-not (Test-Path $backupRoot)) {
+        try {
+            New-Item -ItemType Directory -Path $backupRoot -Force | Out-Null
+            Write-Host "已创建备份目录: $backupRoot" -ForegroundColor Green
+        } catch {
+            Write-Host "无法创建备份目录: $backupRoot，请检查权限。" -ForegroundColor Red
+            exit 1
         }
-        
-        # 验证路径
-        if (-not (Test-Path $backupRoot -IsValid)) {
-            Write-Host "路径格式无效，请重新输入。" -ForegroundColor Red
-            continue
-        }
-        
-        # 创建目录（如果不存在）
-        if (-not (Test-Path $backupRoot)) {
-            try {
-                New-Item -ItemType Directory -Path $backupRoot -Force | Out-Null
-                Write-Host "已创建备份目录: $backupRoot" -ForegroundColor Green
-            } catch {
-                Write-Host "无法创建备份目录: $backupRoot，请检查权限或选择其他路径。" -ForegroundColor Red
-                continue
-            }
-        }
-        break
-    } while ($true)
+    }
     
     # 保存配置
     $config = @{
@@ -88,18 +70,11 @@ function Initialize-Config {
         BACKUP_ROOT = $backupRoot
         BACKUP_KEEP_DAYS = 30
         MAX_FILE_SIZE_MB = 100
-        GIT_AUTO_PUSH = $true
         DEFAULT_REMOTE = "origin"
         LOG_LEVEL = "INFO"
         ENABLE_COLOR = $true
+        GIT_AUTO_PUSH = $true
         CREATED_DATE = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
-        # Git 增强配置
-        GIT_PLATFORM = "github"  # github, gitlab, gitee
-        GIT_USERNAME = ""
-        GIT_DEFAULT_VISIBILITY = "private"  # public, private
-        GIT_AUTO_CREATE_REMOTE = $true
-        GIT_CLI_TOOL = ""  # 自动检测 gh, glab 等
-        GIT_SSH_PREFERRED = $true
     }
     
     try {
@@ -147,6 +122,10 @@ function Load-Config {
 $config = Load-Config
 $RESEARCH_ROOT = $config.RESEARCH_ROOT
 $BACKUP_ROOT = $config.BACKUP_ROOT
+
+# 设置默认值
+$BACKUP_KEEP_DAYS = 30
+$DEFAULT_REMOTE = "origin"
 
 # 颜色配置
 $Colors = @{
@@ -225,15 +204,15 @@ function Show-Help {
   -a, --auto              自动化流程（日志+同步+备份）
   
 Git 增强功能:
-  -gs, --git-status       检查Git CLI工具状态
+  -gs, --git-status       检查Git配置信息
   
 示例:
-  resman -n "injection-seismicity-2025"       # 创建新项目（自动创建远程仓库）
+  resman -n "injection-seismicity-2025"       # 创建新项目（本地Git初始化）
   resman -i "existing-folder"                 # 标记现有文件夹为项目（可选Git初始化）
   resman -j "injection-seismicity-2025"       # 添加日志条目
   resman -a "injection-seismicity-2025"       # 执行完整工作流
   resman -b                                    # 备份所有项目
-  resman -gs                                  # 检查Git CLI工具状态
+  resman -gs                                  # 检查Git配置信息
 
 "@ -ForegroundColor $Colors.White
 }
@@ -287,6 +266,8 @@ function New-ResearchProject {
     }
     
     Write-LogInfo "创建项目: $ProjectName"
+    
+    # 注意: 本工具专注于本地研究流程管理，远程仓库需手动创建
     
     # 创建目录结构
     $Directories = @(
@@ -425,8 +406,8 @@ desktop.ini
     
     $ProjectMarker | ConvertTo-Json -Depth 2 | Set-Content ".resman" -Encoding UTF8
     
-    # 使用增强的Git初始化
-    $GitInitSuccess = Initialize-GitWithRemote -ProjectName $ProjectName -ProjectDir $ProjectDir
+    # 使用本地Git初始化
+    $GitInitSuccess = Initialize-Git -ProjectName $ProjectName -ProjectDir $ProjectDir
     if (-not $GitInitSuccess) {
         Write-LogWarn "Git初始化失败，但项目已创建。您可以稍后手动初始化Git"
     }
@@ -531,28 +512,7 @@ function Initialize-ExistingProject {
                 git add . 2>$null
                 git commit -m "项目初始化: 从现有文件夹转换" 2>$null
                 Write-LogInfo "Git仓库已初始化"
-                
-                # 询问是否创建远程仓库
-                $CreateRemote = Read-Host "是否要创建远程仓库? (y/N)"
-                if ($CreateRemote -eq "y" -or $CreateRemote -eq "Y") {
-                    $RemoteCreated = New-RemoteRepository -ProjectName $FolderName -Interactive $true
-                    if ($RemoteCreated) {
-                        $RemoteConfigured = Set-RemoteRepository -ProjectName $FolderName -Interactive $true
-                        if ($RemoteConfigured) {
-                            git push -u origin main 2>$null
-                            if ($LASTEXITCODE -eq 0) {
-                                Write-LogInfo "项目已推送到远程仓库"
-                            } else {
-                                git push -u origin master 2>$null
-                                if ($LASTEXITCODE -eq 0) {
-                                    Write-LogInfo "项目已推送到远程仓库"
-                                } else {
-                                    Write-LogWarn "推送到远程仓库失败"
-                                }
-                            }
-                        }
-                    }
-                }
+                Write-LogInfo "如需远程仓库，请手动创建后使用 'git remote add origin <url>' 连接"
             } catch {
                 Write-LogWarn "Git初始化失败: $_"
             }
@@ -708,203 +668,19 @@ $($ChangedFiles -split "`n" | ForEach-Object { "  - $_" } | Out-String)
 # Git 增强管理功能
 # =============================================================================
 
-# 检测Git CLI工具
-function Test-GitCLI {
-    $DetectedTools = @()
-    
-    # 检测 GitHub CLI
-    try {
-        $GhVersion = gh --version 2>$null
-        if ($LASTEXITCODE -eq 0) {
-            $DetectedTools += @{ Name = "gh"; Platform = "github"; Version = $GhVersion.Split("`n")[0] }
-        }
-    } catch { }
-    
-    # 检测 GitLab CLI
-    try {
-        $GlabVersion = glab --version 2>$null
-        if ($LASTEXITCODE -eq 0) {
-            $DetectedTools += @{ Name = "glab"; Platform = "gitlab"; Version = $GlabVersion }
-        }
-    } catch { }
-    
-    return $DetectedTools
-}
 
-# 自动创建远程仓库
-function New-RemoteRepository {
+
+
+
+
+
+
+
+# 本地Git初始化（用于新项目）
+function Initialize-Git {
     param(
         [string]$ProjectName,
-        [string]$Platform = $config.GIT_PLATFORM,
-        [string]$Visibility = $config.GIT_DEFAULT_VISIBILITY,
-        [bool]$Interactive = $true
-    )
-    
-    $GitTools = Test-GitCLI
-    
-    if ($GitTools.Count -eq 0) {
-        Write-LogWarn "未检测到Git CLI工具 (gh, glab)"
-        return $false
-    }
-    
-    # 选择合适的工具
-    $SelectedTool = $null
-    foreach ($Tool in $GitTools) {
-        if ($Tool.Platform -eq $Platform) {
-            $SelectedTool = $Tool
-            break
-        }
-    }
-    
-    if (-not $SelectedTool) {
-        $SelectedTool = $GitTools[0]
-        Write-LogWarn "未找到 $Platform 对应的CLI工具，使用 $($SelectedTool.Name)"
-    }
-    
-    Write-LogInfo "使用 $($SelectedTool.Name) 创建远程仓库: $ProjectName"
-    
-    try {
-        switch ($SelectedTool.Name) {
-            "gh" {
-                $VisibilityFlag = if ($Visibility -eq "private") { "--private" } else { "--public" }
-                $Command = "gh repo create $ProjectName $VisibilityFlag --description `"由 resman 创建的研究项目`""
-                
-                Write-LogDebug "执行命令: $Command"
-                Invoke-Expression $Command
-                
-                if ($LASTEXITCODE -eq 0) {
-                    Write-LogInfo "GitHub仓库创建成功"
-                    return $true
-                } else {
-                    Write-LogError "GitHub仓库创建失败"
-                    return $false
-                }
-            }
-            "glab" {
-                $VisibilityFlag = if ($Visibility -eq "private") { "--private" } else { "--public" }
-                $Command = "glab repo create $ProjectName $VisibilityFlag --description `"由 resman 创建的研究项目`""
-                
-                Write-LogDebug "执行命令: $Command"
-                Invoke-Expression $Command
-                
-                if ($LASTEXITCODE -eq 0) {
-                    Write-LogInfo "GitLab仓库创建成功"
-                    return $true
-                } else {
-                    Write-LogError "GitLab仓库创建失败"
-                    return $false
-                }
-            }
-            default {
-                Write-LogError "不支持的Git CLI工具: $($SelectedTool.Name)"
-                return $false
-            }
-        }
-    } catch {
-        Write-LogError "创建远程仓库时出错: $_"
-        return $false
-    }
-}
-
-# 配置远程仓库
-function Set-RemoteRepository {
-    param(
-        [string]$ProjectName,
-        [string]$RemoteUrl = "",
-        [bool]$Interactive = $true
-    )
-    
-    $ProjectDir = Test-Project $ProjectName
-    Set-Location $ProjectDir
-    
-    if (-not (Test-Path ".git")) {
-        Write-LogError "项目未初始化Git仓库"
-        return $false
-    }
-    
-    # 如果没有提供URL，尝试根据配置生成
-    if ([string]::IsNullOrEmpty($RemoteUrl)) {
-        if ([string]::IsNullOrEmpty($config.GIT_USERNAME)) {
-            if ($Interactive) {
-                $config.GIT_USERNAME = Read-Host "请输入您的Git用户名"
-                # 更新配置文件
-                $configJson = Get-Content $CONFIG_FILE | ConvertFrom-Json
-                $configJson.GIT_USERNAME = $config.GIT_USERNAME
-                $configJson | ConvertTo-Json -Depth 3 | Set-Content $CONFIG_FILE -Encoding UTF8
-            } else {
-                Write-LogError "未配置Git用户名"
-                return $false
-            }
-        }
-        
-        # 根据平台生成URL
-        $Protocol = if ($config.GIT_SSH_PREFERRED) { "git@" } else { "https://" }
-        switch ($config.GIT_PLATFORM) {
-            "github" {
-                if ($config.GIT_SSH_PREFERRED) {
-                    $RemoteUrl = "git@github.com:$($config.GIT_USERNAME)/$ProjectName.git"
-                } else {
-                    $RemoteUrl = "https://github.com/$($config.GIT_USERNAME)/$ProjectName.git"
-                }
-            }
-            "gitlab" {
-                if ($config.GIT_SSH_PREFERRED) {
-                    $RemoteUrl = "git@gitlab.com:$($config.GIT_USERNAME)/$ProjectName.git"
-                } else {
-                    $RemoteUrl = "https://gitlab.com/$($config.GIT_USERNAME)/$ProjectName.git"
-                }
-            }
-            "gitee" {
-                if ($config.GIT_SSH_PREFERRED) {
-                    $RemoteUrl = "git@gitee.com:$($config.GIT_USERNAME)/$ProjectName.git"
-                } else {
-                    $RemoteUrl = "https://gitee.com/$($config.GIT_USERNAME)/$ProjectName.git"
-                }
-            }
-            default {
-                Write-LogError "不支持的Git平台: $($config.GIT_PLATFORM)"
-                return $false
-            }
-        }
-    }
-    
-    Write-LogInfo "配置远程仓库: $RemoteUrl"
-    
-    try {
-        # 检查是否已存在origin远程
-        $ExistingRemote = git remote get-url origin 2>$null
-        if ($LASTEXITCODE -eq 0) {
-            Write-LogWarn "远程仓库origin已存在: $ExistingRemote"
-            if ($Interactive) {
-                $Choice = Read-Host "是否要覆盖? (y/N)"
-                if ($Choice -ne "y" -and $Choice -ne "Y") {
-                    return $false
-                }
-            }
-            git remote set-url origin $RemoteUrl
-        } else {
-            git remote add origin $RemoteUrl
-        }
-        
-        if ($LASTEXITCODE -eq 0) {
-            Write-LogInfo "远程仓库配置成功"
-            return $true
-        } else {
-            Write-LogError "远程仓库配置失败"
-            return $false
-        }
-    } catch {
-        Write-LogError "配置远程仓库时出错: $_"
-        return $false
-    }
-}
-
-# 增强的Git初始化（用于新项目）
-function Initialize-GitWithRemote {
-    param(
-        [string]$ProjectName,
-        [string]$ProjectDir,
-        [bool]$CreateRemote = $config.GIT_AUTO_CREATE_REMOTE
+        [string]$ProjectDir
     )
     
     Set-Location $ProjectDir
@@ -925,33 +701,7 @@ function Initialize-GitWithRemote {
         }
         
         Write-LogInfo "本地Git仓库初始化成功"
-        
-        # 如果启用了自动创建远程仓库
-        if ($CreateRemote) {
-            Write-LogInfo "正在创建远程仓库..."
-            
-            $RemoteCreated = New-RemoteRepository -ProjectName $ProjectName -Interactive $false
-            if ($RemoteCreated) {
-                $RemoteConfigured = Set-RemoteRepository -ProjectName $ProjectName -Interactive $false
-                if ($RemoteConfigured) {
-                    # 推送到远程
-                    git push -u origin main 2>$null
-                    if ($LASTEXITCODE -eq 0) {
-                        Write-LogInfo "项目已推送到远程仓库"
-                    } else {
-                        # 尝试master分支
-                        git push -u origin master 2>$null
-                        if ($LASTEXITCODE -eq 0) {
-                            Write-LogInfo "项目已推送到远程仓库"
-                        } else {
-                            Write-LogWarn "推送到远程仓库失败"
-                        }
-                    }
-                }
-            } else {
-                Write-LogWarn "远程仓库创建失败，跳过远程配置"
-            }
-        }
+        Write-LogInfo "如需远程仓库，请手动创建后使用 'git remote add origin <url>' 连接"
         
         return $true
     } catch {
@@ -1345,25 +1095,14 @@ function Main {
             Start-AutoWorkflow $ProjectName
         }
         { $_ -in @("-gs", "--git-status") } {
-            $GitTools = Test-GitCLI
             Write-Host ""
-            Write-LogInfo "Git CLI 工具检测结果:"
-            if ($GitTools.Count -eq 0) {
-                Write-LogWarn "未检测到任何Git CLI工具"
-                Write-Host "  建议安装: GitHub CLI (gh) 或 GitLab CLI (glab)" -ForegroundColor $Colors.Yellow
-            } else {
-                foreach ($Tool in $GitTools) {
-                    Write-Host "  ✓ $($Tool.Name) - $($Tool.Version)" -ForegroundColor $Colors.Green
-                    Write-Host "    平台: $($Tool.Platform)" -ForegroundColor $Colors.Blue
-                }
-            }
+            Write-LogInfo "Git 配置信息:"
+            $gitUserName = git config --global user.name 2>$null
+            $gitUserEmail = git config --global user.email 2>$null
+            Write-Host "  用户名: $(if($gitUserName) { $gitUserName } else { '未配置' })" -ForegroundColor $Colors.Blue
+            Write-Host "  邮箱: $(if($gitUserEmail) { $gitUserEmail } else { '未配置' })" -ForegroundColor $Colors.Blue
             Write-Host ""
-            Write-LogInfo "当前Git配置:"
-            Write-Host "  平台: $($config.GIT_PLATFORM)" -ForegroundColor $Colors.Blue
-            Write-Host "  用户名: $(if($config.GIT_USERNAME) { $config.GIT_USERNAME } else { '未配置' })" -ForegroundColor $Colors.Blue
-            Write-Host "  默认可见性: $($config.GIT_DEFAULT_VISIBILITY)" -ForegroundColor $Colors.Blue
-            Write-Host "  自动创建远程: $($config.GIT_AUTO_CREATE_REMOTE)" -ForegroundColor $Colors.Blue
-            Write-Host "  SSH优先: $($config.GIT_SSH_PREFERRED)" -ForegroundColor $Colors.Blue
+            Write-LogInfo "注意: 本工具专注于本地研究流程管理，远程仓库需手动创建"
         }
         "" {
             # 无参数时显示简短提示

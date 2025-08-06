@@ -88,31 +88,36 @@ show_help() {
   -a, --auto              自动化流程（日志+同步+备份）
   
 Git 增强功能:
-  -gs, --git-status       检查Git CLI工具状态
+  -gs, --git-status       检查Git配置信息
   
 示例:
-  resman -n "injection-seismicity-2025"       # 创建新项目（自动创建远程仓库）
+  resman -n "injection-seismicity-2025"       # 创建新项目（本地Git初始化）
   resman -i "existing-folder"                 # 标记现有文件夹为项目（可选Git初始化）
   resman -j "injection-seismicity-2025"       # 添加日志条目
   resman -a "injection-seismicity-2025"       # 执行完整工作流
   resman -b                                    # 备份所有项目
-  resman -gs                                  # 检查Git CLI工具状态
+  resman -gs                                  # 检查Git配置信息
 
 EOF
 }
 
 # 初始化配置
 initialize_config() {
-    echo -e "${GREEN}欢迎使用研究项目管理工具！${NC}"
-    echo -e "${YELLOW}首次运行需要配置工作目录。${NC}"
+    echo -e "${GREEN}="*60"${NC}"
+    echo -e "${GREEN}    欢迎使用 ResMan 研究项目管理工具！${NC}"
+    echo -e "${GREEN}="*60"${NC}"
+    echo ""
+    echo -e "${YELLOW}首次运行需要进行初始化配置，请按照提示完成设置。${NC}"
     echo ""
     
-    # 获取研究根目录
+    # 步骤1：配置目录
+    echo -e "${BLUE}步骤 1/3: 配置工作目录${NC}"
+    echo "----------------------------------------"
+    
     local default_path="$HOME/research"
     read -p "请输入研究项目根目录路径 (默认: $default_path): " research_root
     research_root=${research_root:-$default_path}
     
-    # 验证并创建目录
     if [[ ! -d "$research_root" ]]; then
         if mkdir -p "$research_root"; then
             log_info "已创建目录: $research_root"
@@ -120,14 +125,14 @@ initialize_config() {
             log_error "无法创建目录: $research_root，请检查权限"
             exit 1
         fi
+    else
+        log_info "使用现有目录: $research_root"
     fi
     
-    # 获取备份目录
     local default_backup_path="${research_root}/_backup"
     read -p "请输入备份目录路径 (默认: $default_backup_path): " backup_root
     backup_root=${backup_root:-$default_backup_path}
     
-    # 验证并创建备份目录
     if [[ ! -d "$backup_root" ]]; then
         if mkdir -p "$backup_root"; then
             log_info "已创建备份目录: $backup_root"
@@ -135,6 +140,73 @@ initialize_config() {
             log_error "无法创建备份目录: $backup_root，请检查权限"
             exit 1
         fi
+    else
+        log_info "使用现有备份目录: $backup_root"
+    fi
+    
+    echo ""
+    
+    # 步骤2：Git配置检查
+    echo -e "${BLUE}步骤 2/3: 检查Git配置${NC}"
+    echo "----------------------------------------"
+    
+    if ! command -v git &> /dev/null; then
+        log_error "未检测到Git，请先安装Git"
+        echo "Ubuntu/Debian: sudo apt install git"
+        echo "CentOS/RHEL: sudo yum install git"
+        exit 1
+    fi
+    
+    log_info "Git已安装: $(git --version)"
+    
+    # 检查Git用户配置
+    local git_name=$(git config --global user.name 2>/dev/null)
+    local git_email=$(git config --global user.email 2>/dev/null)
+    
+    if [[ -z "$git_name" || -z "$git_email" ]]; then
+        log_warn "Git用户信息未配置，现在进行配置"
+        
+        if [[ -z "$git_name" ]]; then
+            read -p "请输入您的Git用户名: " git_name
+            if [[ -n "$git_name" ]]; then
+                git config --global user.name "$git_name"
+                log_info "已设置Git用户名: $git_name"
+            else
+                log_error "Git用户名不能为空"
+                exit 1
+            fi
+        fi
+        
+        if [[ -z "$git_email" ]]; then
+            read -p "请输入您的Git邮箱: " git_email
+            if [[ -n "$git_email" ]]; then
+                git config --global user.email "$git_email"
+                log_info "已设置Git邮箱: $git_email"
+            else
+                log_error "Git邮箱不能为空"
+                exit 1
+            fi
+        fi
+    else
+        log_info "Git用户配置: $git_name <$git_email>"
+    fi
+    
+    echo ""
+    
+    # 步骤3：Git平台配置
+    echo -e "${BLUE}步骤 3/3: 配置Git平台（可选）${NC}"
+    echo "----------------------------------------"
+    
+    # Git配置检查
+    local git_user_name=$(git config --global user.name 2>/dev/null || echo "")
+    local git_user_email=$(git config --global user.email 2>/dev/null || echo "")
+    
+    if [[ -z "$git_user_name" || -z "$git_user_email" ]]; then
+        log_warn "Git用户信息未配置，请设置:"
+        echo "  git config --global user.name \"Your Name\""
+        echo "  git config --global user.email \"your.email@example.com\""
+    else
+        log_info "Git用户配置: $git_user_name <$git_user_email>"
     fi
     
     # 保存配置
@@ -142,24 +214,15 @@ initialize_config() {
 {
     "RESEARCH_ROOT": "$research_root",
     "BACKUP_ROOT": "$backup_root",
-    "BACKUP_KEEP_DAYS": 30,
-    "MAX_FILE_SIZE_MB": 100,
-    "GIT_AUTO_PUSH": true,
-    "DEFAULT_REMOTE": "origin",
-    "LOG_LEVEL": "INFO",
-    "ENABLE_COLOR": true,
-    "CREATED_DATE": "$(date '+%Y-%m-%d %H:%M:%S')",
-    "GIT_PLATFORM": "github",
-    "GIT_USERNAME": "",
-    "GIT_DEFAULT_VISIBILITY": "private",
-    "GIT_AUTO_CREATE_REMOTE": true,
-    "GIT_CLI_TOOL": "",
-    "GIT_SSH_PREFERRED": true
+    "CREATED_DATE": "$(date '+%Y-%m-%d %H:%M:%S')"
 }
 EOF
     
-    log_info "配置已保存到: $CONFIG_FILE"
-    log_info "您可以随时编辑此文件来修改配置。"
+    echo ""
+    echo -e "${GREEN}="*60"${NC}"
+    log_info "配置完成！配置文件已保存到: $CONFIG_FILE"
+    log_info "现在可以开始使用ResMan管理您的研究项目了"
+    echo -e "${GREEN}="*60"${NC}"
     echo ""
 }
 
@@ -177,15 +240,10 @@ load_config() {
     # 读取配置项
     RESEARCH_ROOT=$(jq -r '.RESEARCH_ROOT' "$CONFIG_FILE")
     BACKUP_ROOT=$(jq -r '.BACKUP_ROOT' "$CONFIG_FILE")
-    BACKUP_KEEP_DAYS=$(jq -r '.BACKUP_KEEP_DAYS' "$CONFIG_FILE")
-    MAX_FILE_SIZE_MB=$(jq -r '.MAX_FILE_SIZE_MB' "$CONFIG_FILE")
-    GIT_AUTO_PUSH=$(jq -r '.GIT_AUTO_PUSH' "$CONFIG_FILE")
-    DEFAULT_REMOTE=$(jq -r '.DEFAULT_REMOTE' "$CONFIG_FILE")
-    GIT_PLATFORM=$(jq -r '.GIT_PLATFORM' "$CONFIG_FILE")
-    GIT_USERNAME=$(jq -r '.GIT_USERNAME' "$CONFIG_FILE")
-    GIT_DEFAULT_VISIBILITY=$(jq -r '.GIT_DEFAULT_VISIBILITY' "$CONFIG_FILE")
-    GIT_AUTO_CREATE_REMOTE=$(jq -r '.GIT_AUTO_CREATE_REMOTE' "$CONFIG_FILE")
-    GIT_SSH_PREFERRED=$(jq -r '.GIT_SSH_PREFERRED' "$CONFIG_FILE")
+    
+    # 设置默认值
+    BACKUP_KEEP_DAYS=30
+    DEFAULT_REMOTE="origin"
     
     # 验证必要目录
     if [[ ! -d "$RESEARCH_ROOT" ]]; then
@@ -224,14 +282,14 @@ test_project() {
     echo "$project_path"
 }
 
-# 获取文件大小（MB）
-get_file_size_mb() {
+# 检查文件是否为大文件（超过100MB）
+is_large_file() {
     local file_path="$1"
     if [[ -f "$file_path" ]]; then
-        local size=$(stat -f%z "$file_path" 2>/dev/null || stat -c%s "$file_path")
-        echo "scale=2; $size / 1048576" | bc -l
+        local size=$(stat -c%s "$file_path" 2>/dev/null || stat -f%z "$file_path" 2>/dev/null || echo 0)
+        [[ $size -gt 104857600 ]]  # 100MB = 100 * 1024 * 1024
     else
-        echo "0"
+        return 1
     fi
 }
 
@@ -246,6 +304,9 @@ new_research_project() {
     fi
     
     log_info "创建项目: $project_name"
+    
+    # 注意：本工具专注于本地研究流程管理
+    # 如需远程仓库，请在项目创建后手动创建并推送
     
     # 创建目录结构
     local directories=(
@@ -378,7 +439,7 @@ EOF
 EOF
     
     # 使用增强的Git初始化
-    if initialize_git_with_remote "$project_name" "$project_dir"; then
+    if initialize_git "$project_name" "$project_dir"; then
         log_info "项目 $project_name 创建完成"
     else
         log_warn "Git初始化失败，但项目已创建。您可以稍后手动初始化Git"
@@ -472,22 +533,12 @@ EOF
         echo ""
         read -p "是否要初始化Git仓库? (y/N): " init_git
         if [[ "$init_git" == "y" || "$init_git" == "Y" ]]; then
-            if git init &>/dev/null && git add . &>/dev/null && git commit -m "项目初始化: 从现有文件夹转换" &>/dev/null; then
+            # 检查Git用户配置
+            if ! check_git_user_config; then
+                log_warn "Git用户配置失败，跳过Git初始化"
+            elif git init &>/dev/null && git add . &>/dev/null && git commit -m "项目初始化: 从现有文件夹转换" &>/dev/null; then
                 log_info "Git仓库已初始化"
-                
-                # 询问是否创建远程仓库
-                read -p "是否要创建远程仓库? (y/N): " create_remote
-                if [[ "$create_remote" == "y" || "$create_remote" == "Y" ]]; then
-                    if new_remote_repository "$folder_name"; then
-                        if set_remote_repository "$folder_name"; then
-                            if git push -u origin main &>/dev/null || git push -u origin master &>/dev/null; then
-                                log_info "项目已推送到远程仓库"
-                            else
-                                log_warn "推送到远程仓库失败"
-                            fi
-                        fi
-                    fi
-                fi
+                log_info "如需远程仓库，请手动创建后使用 'git remote add origin <url>' 连接"
             else
                 log_warn "Git初始化失败"
             fi
@@ -616,183 +667,60 @@ EOF
     log_info "研究日志已更新"
 }
 
-# 检测Git CLI工具
-test_git_cli() {
-    local detected_tools=()
-    
-    # 检测 GitHub CLI
-    if command -v gh &> /dev/null; then
-        local gh_version=$(gh --version | head -n1)
-        detected_tools+=("gh|github|$gh_version")
-    fi
-    
-    # 检测 GitLab CLI
-    if command -v glab &> /dev/null; then
-        local glab_version=$(glab --version)
-        detected_tools+=("glab|gitlab|$glab_version")
-    fi
-    
-    printf '%s\n' "${detected_tools[@]}"
-}
 
-# 自动创建远程仓库
-new_remote_repository() {
-    local project_name="$1"
-    local platform="${2:-$GIT_PLATFORM}"
-    local visibility="${3:-$GIT_DEFAULT_VISIBILITY}"
+
+
+
+
+
+
+
+# 检查并配置Git用户信息
+check_git_user_config() {
+    local git_name=$(git config --global user.name 2>/dev/null)
+    local git_email=$(git config --global user.email 2>/dev/null)
     
-    local git_tools
-    readarray -t git_tools < <(test_git_cli)
-    
-    if [[ ${#git_tools[@]} -eq 0 ]]; then
-        log_warn "未检测到Git CLI工具 (gh, glab)"
-        return 1
-    fi
-    
-    # 选择合适的工具
-    local selected_tool=""
-    for tool in "${git_tools[@]}"; do
-        IFS='|' read -r name tool_platform version <<< "$tool"
-        if [[ "$tool_platform" == "$platform" ]]; then
-            selected_tool="$name"
-            break
-        fi
-    done
-    
-    if [[ -z "$selected_tool" ]]; then
-        IFS='|' read -r selected_tool _ _ <<< "${git_tools[0]}"
-        log_warn "未找到 $platform 对应的CLI工具，使用 $selected_tool"
-    fi
-    
-    log_info "使用 $selected_tool 创建远程仓库: $project_name"
-    
-    case "$selected_tool" in
-        "gh")
-            local visibility_flag
-            if [[ "$visibility" == "private" ]]; then
-                visibility_flag="--private"
+    if [[ -z "$git_name" || -z "$git_email" ]]; then
+        log_warn "Git用户信息未配置，需要设置用户名和邮箱"
+        
+        if [[ -z "$git_name" ]]; then
+            read -p "请输入您的Git用户名: " git_name
+            if [[ -n "$git_name" ]]; then
+                git config --global user.name "$git_name"
+                log_info "已设置Git用户名: $git_name"
             else
-                visibility_flag="--public"
-            fi
-            
-            if gh repo create "$project_name" $visibility_flag --description "由 resman 创建的研究项目"; then
-                log_info "GitHub仓库创建成功"
-                return 0
-            else
-                log_error "GitHub仓库创建失败"
+                log_error "Git用户名不能为空"
                 return 1
             fi
-            ;;
-        "glab")
-            local visibility_flag
-            if [[ "$visibility" == "private" ]]; then
-                visibility_flag="--private"
-            else
-                visibility_flag="--public"
-            fi
-            
-            if glab repo create "$project_name" $visibility_flag --description "由 resman 创建的研究项目"; then
-                log_info "GitLab仓库创建成功"
-                return 0
-            else
-                log_error "GitLab仓库创建失败"
-                return 1
-            fi
-            ;;
-        *)
-            log_error "不支持的Git CLI工具: $selected_tool"
-            return 1
-            ;;
-    esac
-}
-
-# 配置远程仓库
-set_remote_repository() {
-    local project_name="$1"
-    local remote_url="$2"
-    local project_dir
-    project_dir=$(test_project "$project_name")
-    
-    cd "$project_dir"
-    
-    if [[ ! -d ".git" ]]; then
-        log_error "项目未初始化Git仓库"
-        return 1
-    fi
-    
-    # 如果没有提供URL，根据配置生成
-    if [[ -z "$remote_url" ]]; then
-        if [[ -z "$GIT_USERNAME" || "$GIT_USERNAME" == "null" ]]; then
-            read -p "请输入您的Git用户名: " git_username
-            # 更新配置文件
-            local temp_config=$(mktemp)
-            jq ".GIT_USERNAME = \"$git_username\"" "$CONFIG_FILE" > "$temp_config"
-            mv "$temp_config" "$CONFIG_FILE"
-            GIT_USERNAME="$git_username"
         fi
         
-        # 根据平台生成URL
-        case "$GIT_PLATFORM" in
-            "github")
-                if [[ "$GIT_SSH_PREFERRED" == "true" ]]; then
-                    remote_url="git@github.com:${GIT_USERNAME}/${project_name}.git"
-                else
-                    remote_url="https://github.com/${GIT_USERNAME}/${project_name}.git"
-                fi
-                ;;
-            "gitlab")
-                if [[ "$GIT_SSH_PREFERRED" == "true" ]]; then
-                    remote_url="git@gitlab.com:${GIT_USERNAME}/${project_name}.git"
-                else
-                    remote_url="https://gitlab.com/${GIT_USERNAME}/${project_name}.git"
-                fi
-                ;;
-            "gitee")
-                if [[ "$GIT_SSH_PREFERRED" == "true" ]]; then
-                    remote_url="git@gitee.com:${GIT_USERNAME}/${project_name}.git"
-                else
-                    remote_url="https://gitee.com/${GIT_USERNAME}/${project_name}.git"
-                fi
-                ;;
-            *)
-                log_error "不支持的Git平台: $GIT_PLATFORM"
+        if [[ -z "$git_email" ]]; then
+            read -p "请输入您的Git邮箱: " git_email
+            if [[ -n "$git_email" ]]; then
+                git config --global user.email "$git_email"
+                log_info "已设置Git邮箱: $git_email"
+            else
+                log_error "Git邮箱不能为空"
                 return 1
-                ;;
-        esac
-    fi
-    
-    log_info "配置远程仓库: $remote_url"
-    
-    # 检查是否已存在origin远程
-    if git remote get-url origin &>/dev/null; then
-        local existing_remote
-        existing_remote=$(git remote get-url origin)
-        log_warn "远程仓库origin已存在: $existing_remote"
-        read -p "是否要覆盖? (y/N): " choice
-        if [[ "$choice" != "y" && "$choice" != "Y" ]]; then
-            return 1
+            fi
         fi
-        git remote set-url origin "$remote_url"
-    else
-        git remote add origin "$remote_url"
     fi
     
-    if [[ $? -eq 0 ]]; then
-        log_info "远程仓库配置成功"
-        return 0
-    else
-        log_error "远程仓库配置失败"
-        return 1
-    fi
+    return 0
 }
 
-# 增强的Git初始化（用于新项目）
-initialize_git_with_remote() {
+# 本地Git初始化
+initialize_git() {
     local project_name="$1"
     local project_dir="$2"
-    local create_remote="${3:-$GIT_AUTO_CREATE_REMOTE}"
     
     cd "$project_dir"
+    
+    # 检查Git用户配置
+    if ! check_git_user_config; then
+        log_warn "Git用户配置失败"
+        return 1
+    fi
     
     # 初始化Git仓库
     if ! git init &>/dev/null; then
@@ -811,24 +739,7 @@ initialize_git_with_remote() {
     fi
     
     log_info "本地Git仓库初始化成功"
-    
-    # 如果启用了自动创建远程仓库
-    if [[ "$create_remote" == "true" ]]; then
-        log_info "正在创建远程仓库..."
-        
-        if new_remote_repository "$project_name"; then
-            if set_remote_repository "$project_name"; then
-                # 推送到远程
-                if git push -u origin main &>/dev/null || git push -u origin master &>/dev/null; then
-                    log_info "项目已推送到远程仓库"
-                else
-                    log_warn "推送到远程仓库失败"
-                fi
-            fi
-        else
-            log_warn "远程仓库创建失败，跳过远程配置"
-        fi
-    fi
+    log_info "如需远程仓库，请手动创建后使用 'git remote add origin <url>' 连接"
     
     return 0
 }
@@ -855,19 +766,18 @@ sync_to_git() {
     git add data/processed/ &>/dev/null || true
     
     if [[ "$include_results" == "true" ]]; then
-        log_info "检查结果文件大小..."
+        log_info "添加结果文件（跳过大文件）..."
         
-        # 添加小于限制大小的结果文件
+        # 添加小于100MB的结果文件
         if [[ -d "results" ]]; then
-            find results -type f -exec bash -c '
-                size=$(get_file_size_mb "$1")
-                if (( $(echo "$size < $MAX_FILE_SIZE_MB" | bc -l) )); then
-                    git add "$1"
-                    log_debug "添加结果文件: $(basename "$1") (${size}MB)"
+            find results -type f | while read -r file; do
+                if ! is_large_file "$file"; then
+                    git add "$file"
+                    log_debug "添加结果文件: $(basename "$file")"
                 else
-                    log_warn "跳过大文件: $(basename "$1") (${size}MB)"
+                    log_warn "跳过大文件: $(basename "$file")"
                 fi
-            ' _ {} \;
+            done
         fi
     else
         # 只添加图表和报告
@@ -1220,27 +1130,14 @@ main() {
             start_auto_workflow "$project_name"
             ;;
         -gs|--git-status)
-            local git_tools
-            readarray -t git_tools < <(test_git_cli)
             echo ""
-            log_info "Git CLI 工具检测结果:"
-            if [[ ${#git_tools[@]} -eq 0 ]]; then
-                log_warn "未检测到任何Git CLI工具"
-                echo -e "  ${YELLOW}建议安装: GitHub CLI (gh) 或 GitLab CLI (glab)${NC}"
-            else
-                for tool in "${git_tools[@]}"; do
-                    IFS='|' read -r name platform version <<< "$tool"
-                    echo -e "  ${GREEN}✓ $name - $version${NC}"
-                    echo -e "    ${BLUE}平台: $platform${NC}"
-                done
-            fi
+            log_info "Git 配置信息:"
+            local git_user_name=$(git config --global user.name 2>/dev/null || echo "未配置")
+            local git_user_email=$(git config --global user.email 2>/dev/null || echo "未配置")
+            log_info "用户名: $git_user_name"
+            log_info "邮箱: $git_user_email"
             echo ""
-            log_info "当前Git配置:"
-            echo -e "  ${BLUE}平台: $GIT_PLATFORM${NC}"
-            echo -e "  ${BLUE}用户名: ${GIT_USERNAME:-未配置}${NC}"
-            echo -e "  ${BLUE}默认可见性: $GIT_DEFAULT_VISIBILITY${NC}"
-            echo -e "  ${BLUE}自动创建远程: $GIT_AUTO_CREATE_REMOTE${NC}"
-            echo -e "  ${BLUE}SSH优先: $GIT_SSH_PREFERRED${NC}"
+            log_info "注意: 本工具专注于本地研究流程管理，远程仓库需手动创建"
             ;;
         "")
             # 无参数时显示简短提示
