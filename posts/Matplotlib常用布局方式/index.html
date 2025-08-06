@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Matplotlib常用布局方式 | 猫野'blog</title><meta name="author" content="猫野"><meta name="copyright" content="猫野"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Matplotlib是Python中最流行的绘图库之一，它提供了多种工具来安排子图（subplots）。在这篇指南中，我们将探索不同的子图布局工具，包括最新的subplot_mosaic方法。每种工具都有其用途和优势，适用于不同的绘图需求。 plt.subplot 最基本的方法是plt.subplot，它可以快速创建单个子图。该方法通过行数、列数和子图索引的方式进行布局。 123456789imp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matplotlib常用布局方式">
+<meta property="og:url" content="https://fumeng6.github.io/posts/Matplotlib%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F/">
+<meta property="og:site_name" content="猫野&#39;blog">
+<meta property="og:description" content="Matplotlib是Python中最流行的绘图库之一，它提供了多种工具来安排子图（subplots）。在这篇指南中，我们将探索不同的子图布局工具，包括最新的subplot_mosaic方法。每种工具都有其用途和优势，适用于不同的绘图需求。 plt.subplot 最基本的方法是plt.subplot，它可以快速创建单个子图。该方法通过行数、列数和子图索引的方式进行布局。 123456789imp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp">
+<meta property="article:published_time" content="2024-05-08T05:30:27.000Z">
+<meta property="article:modified_time" content="2025-07-31T08:41:39.030Z">
+<meta property="article:author" content="猫野">
+<meta property="article:tag" content="Matplotlib绘图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fumeng6.github.io/posts/Matplotlib%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F/"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="Y-X8f9vCs8bhudgMVQDxQGYJL4Z7xH_dWSYRd6ES734"/><meta name="msvalidate.01" content="9EE795D287631CC973035C2295CDE1AF"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Matplotlib常用布局方式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-31 16:41:39'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 8 || hour >= 20
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/tag_plugins.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --></head><body body-type="default"><div id="loading-box"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="onerror=null;src='/img/load.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="猫野'blog"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2023/12/03/diqiu-da.webp"/><span class="site-name">猫野'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">文章标题</a></center></div><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg></a></div><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-light"> </use></svg></a><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Matplotlib常用布局方式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-08T05:30:27.000Z" title="发表于 2024-05-08 13:30:27">2024-05-08</time><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.030Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/">编程相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-zishutongji"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">916</span><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-shichang"></use></svg><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Matplotlib常用布局方式"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-liulanliang"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Matplotlib是Python中最流行的绘图库之一，它提供了多种工具来安排子图（subplots）。在这篇指南中，我们将探索不同的子图布局工具，包括最新的<code>subplot_mosaic</code>方法。每种工具都有其用途和优势，适用于不同的绘图需求。</p>
+<h2 id="plt-subplot">plt.subplot</h2>
+<p>最基本的方法是<code>plt.subplot</code>，它可以快速创建单个子图。该方法通过行数、列数和子图索引的方式进行布局。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)  <span class="comment"># 第一行的第一个子图</span></span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># 第二行的第一个子图</span></span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="plt-subplots">plt.subplots</h2>
+<p><code>plt.subplots</code> 是一个更高级的API，它一次性创建一个子图网格。这个方法返回一个Figure对象和一个子图数组，使得同时管理多个子图变得简单。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(<span class="number">2</span>, <span class="number">2</span>)  <span class="comment"># 2x2的子图网格</span></span><br><span class="line"></span><br><span class="line">axs[<span class="number">0</span>, <span class="number">0</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">axs[<span class="number">0</span>, <span class="number">1</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">axs[<span class="number">1</span>, <span class="number">0</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>])</span><br><span class="line">axs[<span class="number">1</span>, <span class="number">1</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="plt-subplot2grid">plt.subplot2grid</h2>
+<p><code>subplot2grid</code> 允许更多自由度。你可以指定网格的大小，子图在网格中的位置，以及它跨越的行数和列数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">0</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">0</span>, <span class="number">2</span>), rowspan=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">ax1.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">ax2.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">ax3.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="GridSpec">GridSpec</h2>
+<p><code>GridSpec</code> 是一种更为高级的网格布局系统。它提供了比<code>subplot2grid</code>更精细的控制能力，特别适用于创建复杂的布局。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line"></span><br><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :<span class="number">2</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>, <span class="number">1</span>:])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">ax1.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">ax2.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">ax3.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>])</span><br><span class="line">ax4.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="add-axes">add_axes</h2>
+<p>如果你需要完全自定义子图的尺寸和位置，<code>add_axes</code> 是最适合的。这个方法需要一个由[left, bottom, width, height]组成的列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax1 = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])  <span class="comment"># 主轴</span></span><br><span class="line">ax2 = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>])  <span class="comment"># 内嵌轴</span></span><br><span class="line"></span><br><span class="line">ax1.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">ax2.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><code>add_axes</code>非常灵活，它允许你在图形中的几乎任何位置添加子图，而且你可以精确控制其大小和位置。</p>
+<h2 id="subplot-mosaic">subplot_mosaic</h2>
+<p><code>subplot_mosaic</code> 是Matplotlib 3.4版本新增的功能，它可以通过ASCII art风格的布局模式来创建子图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axs = plt.figure(constrained_layout=<span class="literal">True</span>).subplot_mosaic(</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    ABB</span></span><br><span class="line"><span class="string">    ACC</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">axs[<span class="string">&#x27;A&#x27;</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">axs[<span class="string">&#x27;B&#x27;</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">axs[<span class="string">&#x27;C&#x27;</span>].plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，'A’代表了占据左侧两行的大子图，'B’和’C’分别代表了右上角和右下角的子图。</p>
+<h2 id="结语">结语</h2>
+<p>在长期使用中，选择最适合你工作流程的布局工具非常重要。如果你需要创建常规的、结构化的网格布局，<code>plt.subplots()</code>是一个不错的选择，因为它简单易用且功能强大。如果你需要更多的布局灵活性，<code>GridSpec</code>可能是更好的选择。<code>subplot_mosaic</code>提供了一个非常直观且易读的方式来设计复杂布局，特别是在视觉上映射布局时。</p>
+<p>记住，无论你选择哪种布局工具，重要的是它能够帮助你有效地表达你的数据故事。尝试不同的方法，并找到最适合你当前和未来项目的那一个。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://fumeng6.github.io">猫野</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://fumeng6.github.io/posts/Matplotlib%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E6%96%B9%E5%BC%8F/">https://fumeng6.github.io/posts/Matplotlib常用布局方式/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fumeng6.github.io" target="_blank">猫野'blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Matplotlib%E7%BB%98%E5%9B%BE/">Matplotlib绘图</a></div><div class="post_share"><div class="social-share" data-image="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" data-sites="wechat,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>请猫野吃个披萨🍕~~~</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://tuchuang.voooe.cn/images/2024/04/24/weixin.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/weixin.webp" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://tuchuang.voooe.cn/images/2024/04/24/zhifubao.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/zhifubao.webp" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/Git%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="Git简单使用指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Git简单使用指南</div></div></a></div><div class="next-post pull-right"><a href="/posts/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%96%B9%E5%BC%8F/" title="Python常用文件读取方式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python常用文件读取方式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/matplotlib%E7%BB%98%E5%9B%BE%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6/" title="Matplotlib绘图显示中文字符"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Matplotlib绘图显示中文字符</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="this.onerror=null;this.src='/img/load.gif'" alt="avatar"/></div><div class="author-info__name">猫野</div><div class="author-info__description">猫野的个人博客，记录生活和学习的点滴。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/fumeng6" target="_blank" title="github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:6mengfu@gmail.com" target="_blank" title="邮箱"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-wangyuanjing"></use></svg></a><span>通知栏</span></div><div class="announcement_content"><center>主域名：<br><a href="https://fumeng6.github.io"><b><font color="#5ea6e5">fumeng6.github.io</font></b></a>&nbsp;</center></div><div id="welcome-info"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#plt-subplot"><span class="toc-number">1.</span> <span class="toc-text">plt.subplot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plt-subplots"><span class="toc-number">2.</span> <span class="toc-text">plt.subplots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plt-subplot2grid"><span class="toc-number">3.</span> <span class="toc-text">plt.subplot2grid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GridSpec"><span class="toc-number">4.</span> <span class="toc-text">GridSpec</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#add-axes"><span class="toc-number">5.</span> <span class="toc-text">add_axes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#subplot-mosaic"><span class="toc-number">6.</span> <span class="toc-text">subplot_mosaic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 猫野</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到猫野的小世界🙂</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.8/lazyload.iife.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.8.0/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><canvas id="universe"></canvas><script src="/js/custom.js"></script><script src="/js/jquery.min.js"></script><script async data-pjax src="/js/welcome_info.js"></script><script async src="//at.alicdn.com/t/c/font_4350076_l4exg8pq80r.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInLeft');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInRight');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="/js/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body><script>window.bodyType = ''; 
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.setAttribute('body-type', window.bodyType || 'default');
+});
+
+// PJAX 或页面导航更新
+document.addEventListener('pjax:complete', function() {
+  var pageInfoElement = document.getElementById('page-info');
+  if (pageInfoElement) {
+    var bodyType = pageInfoElement.getAttribute('type-info');
+    document.body.setAttribute('body-type', bodyType || 'default');
+  } else {
+    document.body.setAttribute('body-type', 'default');
+  }
+});</script></html>

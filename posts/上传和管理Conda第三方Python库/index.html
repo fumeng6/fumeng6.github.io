@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>上传和管理Conda第三方Python库 | 猫野'blog</title><meta name="author" content="猫野"><meta name="copyright" content="猫野"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="将 Python 代码打包并上传到 Conda 可以让其他人轻松地安装和使用你的库。以下是如何创建、上传和管理 Conda 包的详细步骤。 准备包 结构你的项目 一个良好组织的项目结构是成功创建 Python 包的关键。以下是一个推荐的项目结构： 12345678910111213myproject&#x2F;  # 项目根目录│├── mypackage&#x2F; # 包根目录，文件夹名就是包名了│   ├──">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上传和管理Conda第三方Python库">
+<meta property="og:url" content="https://fumeng6.github.io/posts/%E4%B8%8A%E4%BC%A0%E5%92%8C%E7%AE%A1%E7%90%86Conda%E7%AC%AC%E4%B8%89%E6%96%B9Python%E5%BA%93/">
+<meta property="og:site_name" content="猫野&#39;blog">
+<meta property="og:description" content="将 Python 代码打包并上传到 Conda 可以让其他人轻松地安装和使用你的库。以下是如何创建、上传和管理 Conda 包的详细步骤。 准备包 结构你的项目 一个良好组织的项目结构是成功创建 Python 包的关键。以下是一个推荐的项目结构： 12345678910111213myproject&#x2F;  # 项目根目录│├── mypackage&#x2F; # 包根目录，文件夹名就是包名了│   ├──">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp">
+<meta property="article:published_time" content="2024-05-07T07:30:08.000Z">
+<meta property="article:modified_time" content="2025-07-31T08:41:39.034Z">
+<meta property="article:author" content="猫野">
+<meta property="article:tag" content="Conda">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="第三方库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fumeng6.github.io/posts/%E4%B8%8A%E4%BC%A0%E5%92%8C%E7%AE%A1%E7%90%86Conda%E7%AC%AC%E4%B8%89%E6%96%B9Python%E5%BA%93/"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="Y-X8f9vCs8bhudgMVQDxQGYJL4Z7xH_dWSYRd6ES734"/><meta name="msvalidate.01" content="9EE795D287631CC973035C2295CDE1AF"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '上传和管理Conda第三方Python库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-31 16:41:39'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 8 || hour >= 20
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/tag_plugins.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --></head><body body-type="default"><div id="loading-box"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="onerror=null;src='/img/load.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="猫野'blog"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2023/12/03/diqiu-da.webp"/><span class="site-name">猫野'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">文章标题</a></center></div><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg></a></div><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-light"> </use></svg></a><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">上传和管理Conda第三方Python库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.034Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/">编程相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-zishutongji"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-shichang"></use></svg><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="上传和管理Conda第三方Python库"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-liulanliang"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>将 Python 代码打包并上传到 Conda 可以让其他人轻松地安装和使用你的库。以下是如何创建、上传和管理 Conda 包的详细步骤。</p>
+<h2 id="准备包">准备包</h2>
+<h3 id="结构你的项目">结构你的项目</h3>
+<p>一个良好组织的项目结构是成功创建 Python 包的关键。以下是一个推荐的项目结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">myproject/  # 项目根目录</span><br><span class="line">│</span><br><span class="line">├── mypackage/ # 包根目录，文件夹名就是包名了</span><br><span class="line">│   ├── __init__.py  # 包初始化文件</span><br><span class="line">│   ├── coulomb.py # 子模块</span><br><span class="line">│   ├── other.py # 子模块</span><br><span class="line">│   └── readinfo.py # 子模块</span><br><span class="line">│</span><br><span class="line">├── LICENSE # 许可证文件</span><br><span class="line">├── README.md # 项目说明文件</span><br><span class="line">├── pyproject.toml # 包元数据和安装依赖的配置文件</span><br><span class="line">├── setup.cfg  # 包元数据和安装依赖的配置文件</span><br><span class="line">└── meta.yaml  # Conda配方文件</span><br></pre></td></tr></table></figure>
+<p><strong>文件和目录说明</strong></p>
+<p><code>__init__.py</code>: 标记目录为 Python 包目录，这对于导入模块时的包识别非常必要。<br>
+<code>coulomb.py</code>, <code>other.py</code>, <code>readinfo.py</code>: 不同的模块，包含具体的功能。<br>
+<code>LICENSE</code>: 包含你的代码的许可证信息。<br>
+<code>README.md</code>: 项目的 Markdown 说明文件，通常包含安装指南、使用示例以及开发和贡献指南。<br>
+<code>pyproject.toml</code>: 包含包元数据和安装依赖的配置文件，这是替代传统 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 文件的现代方法。<br>
+<code>setup.cfg</code>: 包含包元数据和安装依赖的配置文件，这是替代传统 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 文件的现代方法。<br>
+<code>meta.yaml</code>: Conda 配方文件，告诉 Conda 如何构建和打包库。<br>
+确保所有文件编码为 UTF-8，特别是<code>README.md</code>和<code>setup.cfg</code>，以避免编码问题。</p>
+<h3 id="各文件撰写说明">各文件撰写说明</h3>
+<h4 id="LICENSE">LICENSE</h4>
+<p>通常，你可以选择一个开源许可证，如 MIT 许可证。这是一个非常通用的模板，适用于需要提供广泛权限的项目。</p>
+<h5 id="模板">模板</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">MIT License</span><br><span class="line"></span><br><span class="line">Copyright (c) [year] [full name]</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure>
+<h5 id="示例">示例</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">MIT License</span><br><span class="line"></span><br><span class="line">Copyright (c) 2024 Mao Ye</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure>
+<h4 id="README-md"><a target="_blank" rel="noopener" href="http://README.md">README.md</a></h4>
+<p><code>README.md</code> 文件是项目的主要文档，通常包含安装指南、使用示例以及开发和贡献指南。以下是<code>README.md</code> 模板和相应的示例，专为 Python 库项目设计。</p>
+<h5 id="模板-2">模板</h5>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Project Name</span></span><br><span class="line"></span><br><span class="line">One or two paragraphs providing an overview of what this project does.</span><br><span class="line"></span><br><span class="line"><span class="section">## Installation</span></span><br><span class="line"></span><br><span class="line">Instructions on how to get the development environment running.</span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">pip install your_package_name</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Usage</span></span><br><span class="line"></span><br><span class="line">A quick example to show the basic usage:</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">import your_package_name</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">result = your_package_name.some_function()</span></span><br><span class="line"><span class="code">print(result)</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Features</span></span><br><span class="line"></span><br><span class="line">List of features or a brief code walkthrough:</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Feature 1</span><br><span class="line"><span class="bullet">-</span> Feature 2</span><br><span class="line"><span class="bullet">-</span> Feature 3</span><br><span class="line"></span><br><span class="line"><span class="section">## Contributing</span></span><br><span class="line"></span><br><span class="line">State if you are open to contributions and what your requirements are for accepting them.</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> Fork the Project</span><br><span class="line"><span class="bullet">2.</span> Create your Feature Branch (<span class="code">`git checkout -b feature/AmazingFeature`</span>)</span><br><span class="line"><span class="bullet">3.</span> Commit your Changes (<span class="code">`git commit -m &#x27;Add some AmazingFeature&#x27;`</span>)</span><br><span class="line"><span class="bullet">4.</span> Push to the Branch (<span class="code">`git push origin feature/AmazingFeature`</span>)</span><br><span class="line"><span class="bullet">5.</span> Open a Pull Request</span><br><span class="line"></span><br><span class="line"><span class="section">## License</span></span><br><span class="line"></span><br><span class="line">Distributed under the MIT License. See <span class="code">`LICENSE`</span> for more information.</span><br><span class="line"></span><br><span class="line"><span class="section">## Contact</span></span><br><span class="line"></span><br><span class="line">Your Name - [<span class="string">@your_twitter</span>](<span class="link">https://twitter.com/your_twitter</span>) - email@example.com</span><br><span class="line"></span><br><span class="line">Project Link: [<span class="string">https://github.com/yourusername/your_project_name</span>](<span class="link">https://github.com/yourusername/your_project_name</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="示例-2">示例</h5>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># CoulombCalc</span></span><br><span class="line"></span><br><span class="line">CoulombCalc is a Python library designed for calculating Coulomb stress changes due to fluid injection in geophysical studies.</span><br><span class="line"></span><br><span class="line"><span class="section">## Installation</span></span><br><span class="line"></span><br><span class="line">You can install CoulombCalc using pip:</span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">pip install coulombcalc</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Usage</span></span><br><span class="line"></span><br><span class="line">Here&#x27;s how you can calculate Coulomb stress using CoulombCalc:</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">import coulombcalc</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">stress = coulombcalc.calculate_stress(source_parameters, receiver_fault)</span></span><br><span class="line"><span class="code">print(f&quot;The calculated stress change is: &#123;stress&#125; bars&quot;)</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Features</span></span><br><span class="line"></span><br><span class="line">CoulombCalc provides:</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Easy-to-use interface for calculating stress changes.</span><br><span class="line"><span class="bullet">-</span> Support for various fault and source geometries.</span><br><span class="line"><span class="bullet">-</span> Integration with commonly used geophysical libraries.</span><br><span class="line"></span><br><span class="line"><span class="section">## Contributing</span></span><br><span class="line"></span><br><span class="line">Contributions are welcome, especially from those who are also interested in seismology and geophysics.</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> Fork the Project</span><br><span class="line"><span class="bullet">2.</span> Create your Feature Branch (<span class="code">`git checkout -b feature/NewCalculationModel`</span>)</span><br><span class="line"><span class="bullet">3.</span> Commit your Changes (<span class="code">`git commit -m &#x27;Add some NewCalculationModel&#x27;`</span>)</span><br><span class="line"><span class="bullet">4.</span> Push to the Branch (<span class="code">`git push origin feature/NewCalculationModel`</span>)</span><br><span class="line"><span class="bullet">5.</span> Open a Pull Request</span><br><span class="line"></span><br><span class="line"><span class="section">## License</span></span><br><span class="line"></span><br><span class="line">Distributed under the MIT License. See <span class="code">`LICENSE`</span> for more information.</span><br><span class="line"></span><br><span class="line"><span class="section">## Contact</span></span><br><span class="line"></span><br><span class="line">Mao Ye - [<span class="string">@maoye</span>](<span class="link">https://twitter.com/maoye</span>) - maoye@example.com</span><br><span class="line"></span><br><span class="line">Project Link: [<span class="string">https://github.com/maoye/coulombcalc</span>](<span class="link">https://github.com/maoye/coulombcalc</span>)</span><br></pre></td></tr></table></figure>
+<p>这个模板和示例涵盖了基本介绍、安装指南、用法示例、特色功能、贡献指南、许可证信息以及联系方式，是一个全面的项目文档开始点。</p>
+<h4 id="pyproject-toml">pyproject.toml</h4>
+<p><code>pyproject.toml</code> 文件是替代传统<code>setup.py</code>文件的现代方法，用于包含包元数据和安装依赖,与 setup.cfg 配合使用。以下是<code>pyproject.toml</code> 示例。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[build-system]</span></span><br><span class="line"><span class="attr">requires</span> = [<span class="string">&quot;setuptools&quot;</span>, <span class="string">&quot;wheel&quot;</span>]</span><br><span class="line"><span class="attr">build-backend</span> = <span class="string">&quot;setuptools.build_meta&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="setup-cfg">setup.cfg</h4>
+<p><code>setup.cfg</code> 文件包含包元数据和安装依赖的配置文件。以下是<code>setup.cfg</code> 模板和示例。</p>
+<h5 id="模板-3">模板</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[metadata]</span><br><span class="line">name = package_name</span><br><span class="line">version = 0.1.0</span><br><span class="line">author = Your Name</span><br><span class="line">author_email = your.email@example.com</span><br><span class="line">description = A short description of your package</span><br><span class="line">long_description = file: README.md</span><br><span class="line">long_description_content_type = text/markdown</span><br><span class="line">url = http://github.com/yourusername/your_package_name</span><br><span class="line">license = License Name</span><br><span class="line"></span><br><span class="line">[options]</span><br><span class="line">packages = find:</span><br><span class="line">python_requires = &gt;=3.6</span><br><span class="line">install_requires =</span><br><span class="line">    dependency1</span><br><span class="line">    dependency2</span><br></pre></td></tr></table></figure>
+<h5 id="示例-3">示例</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[metadata]</span><br><span class="line">name = mypackage</span><br><span class="line">version = 0.1.0</span><br><span class="line">author = Mao Ye</span><br><span class="line">author_email = john.doe@example.com</span><br><span class="line">description = A package for calculating Coulomb stress changes</span><br><span class="line">long_description = file: README.md</span><br><span class="line">long_description_content_type = text/markdown</span><br><span class="line">url = http://github.com/maoye/mypackage</span><br><span class="line">license = MIT</span><br><span class="line"></span><br><span class="line">[options]</span><br><span class="line">packages = find:</span><br><span class="line">python_requires = &gt;=3.6</span><br><span class="line">install_requires =</span><br><span class="line">    numpy</span><br><span class="line">    scipy</span><br></pre></td></tr></table></figure>
+<h4 id="meta-yaml">meta.yaml</h4>
+<p><code>meta.yaml</code> 文件是 Conda 配方文件，告诉 Conda 如何构建和打包库。以下是<code>meta.yaml</code> 模板及示例。</p>
+<h5 id="模板-4">模板</h5>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">package:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; package_name &#125;&#125;</span>&quot;</span></span><br><span class="line">  <span class="attr">version:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; version &#125;&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">source:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line">  <span class="attr">number:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">script:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; PYTHON &#125;&#125;</span> -m pip install . --no-deps --ignore-installed --no-cache-dir&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">requirements:</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">setuptools</span></span><br><span class="line">  <span class="attr">run:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span></span><br><span class="line"></span><br><span class="line"><span class="attr">about:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; url &#125;&#125;</span>&quot;</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; license &#125;&#125;</span>&quot;</span></span><br><span class="line">  <span class="attr">summary:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; summary_description &#125;&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">extra:</span></span><br><span class="line">  <span class="attr">recipe-maintainers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">your_username</span></span><br></pre></td></tr></table></figure>
+<h5 id="示例-4">示例</h5>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">package:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">&quot;mypackage&quot;</span></span><br><span class="line">  <span class="attr">version:</span> <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">source:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line">  <span class="attr">number:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">script:</span> <span class="string">&quot;<span class="template-variable">&#123;&#123; PYTHON &#125;&#125;</span> -m pip install . --no-deps --ignore-installed --no-cache-dir&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">requirements:</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span> <span class="string">&gt;=3.6</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">setuptools</span></span><br><span class="line">  <span class="attr">run:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span> <span class="string">&gt;=3.6</span></span><br><span class="line"></span><br><span class="line"><span class="attr">about:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">&quot;http://github.com/maoye/mypackage&quot;</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">&quot;MIT&quot;</span></span><br><span class="line">  <span class="attr">summary:</span> <span class="string">&quot;A package for calculating Coulomb stress changes&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">extra:</span></span><br><span class="line">  <span class="attr">recipe-maintainers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">maoye</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建包">构建包</h2>
+<p>在<code>mypackage/</code>目录下，运行以下命令使用 Conda 构建系统打包你的项目。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda build .</span><br></pre></td></tr></table></figure>
+<p>这将在<code>/Anaconda3/conda-bld/win-64</code>目录生成<code>.tar.bz2</code>文件。</p>
+<h2 id="上传包">上传包</h2>
+<h3 id="登录到-Anaconda-Cloud">登录到 Anaconda Cloud</h3>
+<p>如果没有 <a target="_blank" rel="noopener" href="http://anaconda.org">anaconda.org</a> 的账号，请先注册一个。随后在命令行中输入以下命令登录到 Anaconda ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anaconda login</span><br></pre></td></tr></table></figure>
+<h3 id="上传包-2">上传包</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anaconda upload /path/to/your/conda/package.tar.bz2</span><br></pre></td></tr></table></figure>
+<p>确保替换<code>/path/to/your/conda/package.tar.bz2</code>为你的包路径。如果不想每次都这样上传，也可以设置构建完成后自动上传：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --<span class="built_in">set</span> anaconda_upload <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+<p>如果你想临时禁用自动上传，可以在构建命令中添加 --no-anaconda-upload 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda build --no-anaconda-upload</span><br></pre></td></tr></table></figure>
+<h2 id="管理包">管理包</h2>
+<h3 id="列出包">列出包</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anaconda package --user your_username</span><br></pre></td></tr></table></figure>
+<h3 id="删除包">删除包</h3>
+<p>删除所有版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anaconda remove your_username/package_name</span><br></pre></td></tr></table></figure>
+<p>删除特定版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anaconda remove your_username/package_name/version</span><br></pre></td></tr></table></figure>
+<h3 id="更新包">更新包</h3>
+<p>重新构建你的包并上传新版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda build .</span><br><span class="line">anaconda upload /path/to/your/conda/package.tar.bz2</span><br></pre></td></tr></table></figure>
+<p>希望这个指南可以帮助你成功地将你的 Python 包上传到 Conda，并进行有效的日常管理。记得在上传任何更新之前都要详细测试你的包以确保它的稳定性和可靠性。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://fumeng6.github.io">猫野</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://fumeng6.github.io/posts/%E4%B8%8A%E4%BC%A0%E5%92%8C%E7%AE%A1%E7%90%86Conda%E7%AC%AC%E4%B8%89%E6%96%B9Python%E5%BA%93/">https://fumeng6.github.io/posts/上传和管理Conda第三方Python库/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fumeng6.github.io" target="_blank">猫野'blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Conda/">Conda</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/">第三方库</a></div><div class="post_share"><div class="social-share" data-image="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" data-sites="wechat,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>请猫野吃个披萨🍕~~~</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://tuchuang.voooe.cn/images/2024/04/24/weixin.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/weixin.webp" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://tuchuang.voooe.cn/images/2024/04/24/zhifubao.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/zhifubao.webp" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" title="机器学习入门指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">机器学习入门指南</div></div></a></div><div class="next-post pull-right"><a href="/posts/hello%20world/" title="hello world"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hello world</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/Conda%E5%8F%8Apip%E6%8D%A2%E6%BA%90/" title="Conda及pip换源"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Conda及pip换源</div></div></a></div><div><a href="/posts/conda%E5%AF%BC%E5%87%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/" title="Conda导出虚拟环境依赖文件"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Conda导出虚拟环境依赖文件</div></div></a></div><div><a href="/posts/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%96%B9%E5%BC%8F/" title="Python常用文件读取方式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Python常用文件读取方式</div></div></a></div><div><a href="/posts/Python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="Python数据结构"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-10</div><div class="title">Python数据结构</div></div></a></div><div><a href="/posts/Python%E7%AE%80%E5%8D%95GUI%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0/" title="Python简单GUI程序实现"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Python简单GUI程序实现</div></div></a></div><div><a href="/posts/matplotlib%E7%BB%98%E5%9B%BE%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6/" title="Matplotlib绘图显示中文字符"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Matplotlib绘图显示中文字符</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="this.onerror=null;this.src='/img/load.gif'" alt="avatar"/></div><div class="author-info__name">猫野</div><div class="author-info__description">猫野的个人博客，记录生活和学习的点滴。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/fumeng6" target="_blank" title="github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:6mengfu@gmail.com" target="_blank" title="邮箱"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-wangyuanjing"></use></svg></a><span>通知栏</span></div><div class="announcement_content"><center>主域名：<br><a href="https://fumeng6.github.io"><b><font color="#5ea6e5">fumeng6.github.io</font></b></a>&nbsp;</center></div><div id="welcome-info"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">准备包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">结构你的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%96%87%E4%BB%B6%E6%92%B0%E5%86%99%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text">各文件撰写说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LICENSE"><span class="toc-number">1.2.1.</span> <span class="toc-text">LICENSE</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#README-md"><span class="toc-number">1.2.2.</span> <span class="toc-text">README.md</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF-2"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pyproject-toml"><span class="toc-number">1.2.3.</span> <span class="toc-text">pyproject.toml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setup-cfg"><span class="toc-number">1.2.4.</span> <span class="toc-text">setup.cfg</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF-3"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-3"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#meta-yaml"><span class="toc-number">1.2.5.</span> <span class="toc-text">meta.yaml</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF-4"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-4"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">构建包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text">上传包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%88%B0-Anaconda-Cloud"><span class="toc-number">3.1.</span> <span class="toc-text">登录到 Anaconda Cloud</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%8C%85-2"><span class="toc-number">3.2.</span> <span class="toc-text">上传包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%8C%85"><span class="toc-number">4.</span> <span class="toc-text">管理包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E5%8C%85"><span class="toc-number">4.1.</span> <span class="toc-text">列出包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%8C%85"><span class="toc-number">4.2.</span> <span class="toc-text">删除包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-number">4.3.</span> <span class="toc-text">更新包</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 猫野</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到猫野的小世界🙂</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.8/lazyload.iife.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.8.0/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><canvas id="universe"></canvas><script src="/js/custom.js"></script><script src="/js/jquery.min.js"></script><script async data-pjax src="/js/welcome_info.js"></script><script async src="//at.alicdn.com/t/c/font_4350076_l4exg8pq80r.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInLeft');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInRight');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="/js/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body><script>window.bodyType = ''; 
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.setAttribute('body-type', window.bodyType || 'default');
+});
+
+// PJAX 或页面导航更新
+document.addEventListener('pjax:complete', function() {
+  var pageInfoElement = document.getElementById('page-info');
+  if (pageInfoElement) {
+    var bodyType = pageInfoElement.getAttribute('type-info');
+    document.body.setAttribute('body-type', bodyType || 'default');
+  } else {
+    document.body.setAttribute('body-type', 'default');
+  }
+});</script></html>

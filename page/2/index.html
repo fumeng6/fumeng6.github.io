@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>猫野'blog - 不求甚解，唯求渐进</title><meta name="author" content="猫野"><meta name="copyright" content="猫野"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探索地球物理学前沿，专注于注水诱发地震的深入研究。本站点不仅分享最新的地震研究成果，还提供编程技巧和资源，特别是在前端开发和Python编程方面的实用技术。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="猫野&#39;blog">
+<meta property="og:url" content="https://fumeng6.github.io/page/2/">
+<meta property="og:site_name" content="猫野&#39;blog">
+<meta property="og:description" content="探索地球物理学前沿，专注于注水诱发地震的深入研究。本站点不仅分享最新的地震研究成果，还提供编程技巧和资源，特别是在前端开发和Python编程方面的实用技术。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp">
+<meta property="article:author" content="猫野">
+<meta property="article:tag" content="地球物理">
+<meta property="article:tag" content="注水诱发地震">
+<meta property="article:tag" content="地震研究">
+<meta property="article:tag" content="Python 编程">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="地震数据处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://fumeng6.github.io/page/2/"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="Y-X8f9vCs8bhudgMVQDxQGYJL4Z7xH_dWSYRd6ES734"/><meta name="msvalidate.01" content="9EE795D287631CC973035C2295CDE1AF"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '猫野\'blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2025-08-06 16:19:23'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 8 || hour >= 20
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/tag_plugins.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --></head><body body-type="default"><div id="loading-box"><div class="loader"><div class="loader-inner"><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div><div class="loader-line-wrap"><div class="loader-line"></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="onerror=null;src='/img/load.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="猫野'blog"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2023/12/03/diqiu-da.webp"/><span class="site-name">猫野'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-shujia"></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-guidang">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-fenlei">                   </use></svg><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-biaoqian">                   </use></svg><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-diannaozhuo"></use></svg><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/album/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-xiangce">                   </use></svg><span> 相簿</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/play/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yule">                   </use></svg><span> 解压</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-feichuan"></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-yuhangyuan2">                   </use></svg><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/message/"><svg class="icon faa-tada" aria-hidden="true" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px"><use xlink:href="#icon-liuyanban">                   </use></svg><span> 留言</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">文章标题</a></center></div><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg></a></div><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:30px;width:30px;fill:currentColor;position:relative;top:6px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-light"> </use></svg></a><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">猫野'blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon faa-parent animated-hover" href="https://github.com/fumeng6" target="_blank" title="github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:6mengfu@gmail.com" target="_blank" title="邮箱"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Conda%E5%8F%8Apip%E6%8D%A2%E6%BA%90/" title="Conda及pip换源"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="Conda及pip换源"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Conda%E5%8F%8Apip%E6%8D%A2%E6%BA%90/" title="Conda及pip换源">Conda及pip换源</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-08T05:21:47.000Z" title="发表于 2024-05-08 13:21:47">2024-05-08</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.026Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/">编程相关</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Conda/">Conda</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/pip/">pip</a></span></div><div class="content">Windows下的换源
+因为一些原因，使用conda和pip官方源的时候下载速度太慢，可以考虑将它们的源换成国内镜像源。
+conda换源
+在windows下，conda的源配置文件是C:\Users\你的用户名\.condarc,Windows 用户无法直接创建名为.condarc的文件，可先执行下面的这句命令生成该文件之后再修改。
+1conda config --set show_channel_urls yes
+除此之外，也可以不修改源配置文件，直接通过命令来添加，下面两小节前者使用修改文件的方式换源，后者使用命令的方式来换源。
+替换成清华源
+将下面的内容复制粘贴进.condarc文件并保存。
+123456789101112131415channels:  - defaultsshow_channel_urls: truedefault_channels:  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/Windows11%E4%B8%AD%E5%AE%89%E8%A3%85WSL/" title="Windows11中安装WSL"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="Windows11中安装WSL"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Windows11%E4%B8%AD%E5%AE%89%E8%A3%85WSL/" title="Windows11中安装WSL">Windows11中安装WSL</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-08T05:15:10.000Z" title="发表于 2024-05-08 13:15:10">2024-05-08</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.032Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/">编程相关</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/WSL/">WSL</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span></div><div class="content">使用 WSL 在 Windows 上安装 Linux
+通过适用于 Linux 的 Windows 子系统 (WSL)，开发人员可以安装 Linux 发行版（例如 Ubuntu、OpenSUSE、Kali、Debian、Arch Linux 等），并直接在 Windows 上使用 Linux 应用程序、实用程序和 Bash 命令行工具，不用进行任何修改，也无需承担传统虚拟机或双启动设置的费用。
+安装 WSL 命令
+可以使用单个命令安装运行 WSL 所需的一切内容。 在管理员模式下打开 PowerShell 或 Windows 命令提示符，方法是右键单击并选择“以管理员身份运行”，输入 wsl --install 命令，然后重启计算机。
+1wsl --install
+此命令将启用运行 WSL 并安装 Linux 的 Ubuntu 发行版所需的功能。
+更改默认安装的 Linux 发行版
+默认情况下，安装的 Linux 分发版为 Ubuntu。 可以使用 -d 标志进行更改。
+
+若要更改安装的发行版，请输入： wsl --install -d &lt;Distribution Name&gt; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/" title="Markdown语法与外挂标签写法汇总"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2023/11/30/fengmian1.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="Markdown语法与外挂标签写法汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/" title="Markdown语法与外挂标签写法汇总">Markdown语法与外挂标签写法汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.029Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/">建站日记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Markdown/">Markdown</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/">外挂标签</a></span></div><div class="content">1.Markdown语法自带格式
+参考：Markdown语法图文全面详解(10分钟学会)
+
+注意：此页面偶尔会存在CSS冲突问题!
+
+1.1 代码块
+示例源码渲染演示12345678910111213\```shell# VSCode终端hexo clean; hexo shexo clean; hexo g; hexo dgit add .; git commit -m &quot;npm publish&quot;; npm version patch; git push# Cmder终端hexo clean &amp;&amp; hexo shexo clean &amp;&amp; hexo g &amp;&amp; hexo dgit add . &amp;&amp; git commit -m &quot;npm publish&quot; &amp;&amp; npm version patchgit push\```1234567891011# VSCode终端hexo clean; hexo shexo clean; hexo g; hexo dgit add .;  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/hello%20world/" title="hello world"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="hello world"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/hello%20world/" title="hello world">hello world</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.033Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/">建站日记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Blog/">Blog</a></span></div><div class="content">这是我的建站日记
+日记第一篇
+很高兴遇见你😀
+记得要多看hexo的官方文档哦😊
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/%E4%B8%8A%E4%BC%A0%E5%92%8C%E7%AE%A1%E7%90%86Conda%E7%AC%AC%E4%B8%89%E6%96%B9Python%E5%BA%93/" title="上传和管理Conda第三方Python库"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="上传和管理Conda第三方Python库"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/%E4%B8%8A%E4%BC%A0%E5%92%8C%E7%AE%A1%E7%90%86Conda%E7%AC%AC%E4%B8%89%E6%96%B9Python%E5%BA%93/" title="上传和管理Conda第三方Python库">上传和管理Conda第三方Python库</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.034Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/">编程相关</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Conda/">Conda</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/">第三方库</a></span></div><div class="content">将 Python 代码打包并上传到 Conda 可以让其他人轻松地安装和使用你的库。以下是如何创建、上传和管理 Conda 包的详细步骤。
+准备包
+结构你的项目
+一个良好组织的项目结构是成功创建 Python 包的关键。以下是一个推荐的项目结构：
+12345678910111213myproject/  # 项目根目录│├── mypackage/ # 包根目录，文件夹名就是包名了│   ├── __init__.py  # 包初始化文件│   ├── coulomb.py # 子模块│   ├── other.py # 子模块│   └── readinfo.py # 子模块│├── LICENSE # 许可证文件├── README.md # 项目说明文件├── pyproject.toml # 包元数据和安装依赖的配置文件├── setup.cfg  # 包元数据和安装依赖的配置文件└── meta.yaml  # Conda配方文件
+文件和目录说明
+__init__.py: 标记目录为 Python 包目录，这对于导入模块时的包识别非常必要。
+coulomb.py, other ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" title="机器学习入门指南"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="机器学习入门指南"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" title="机器学习入门指南">机器学习入门指南</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.038Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/AI%E7%9B%B8%E5%85%B3/">AI相关</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">机器学习的世界是多彩而广阔的，对于初学者来说，拥有一个清晰的学习路径是至关重要的。以下是为零基础纯小白的初学者定制的学习计划，旨在帮助初学者在数周到数月内建立起机器学习的知识体系，打下坚实的基础，为未来深入的学术研究做好准备。
+每月学习目标概览
+
+第一个月：掌握Python编程基础和数学基础。
+第二个月：理解并能处理数据，学习机器学习的基本理论。
+第三个月：通过项目实践加深理解，开始接触深度学习。
+
+每周安排适量的学习任务，保证有足够的时间进行实践和复习。建议初学者在每个阶段结束时，至少完成一个相关的实践项目，以验证所学知识。通过实践加深对理论的理解，同时积累项目经验，为未来的学术研究打下坚实的基础。
+第一月：编程基础与数学基础
+学习目标：
+
+掌握Python编程的基本知识。
+理解线性代数与概率统计的基础概念。
+
+学习建议：
+
+每天安排固定时间学习编程。
+利用在线资源进行自我测试，巩固数学概念。
+
+第1周：Python编程入门
+
+中文资源：菜鸟教程Python基础
+英文资源：Codecademy Python 课程
+
+第2周：Python高级概念
+
+中文资源：廖雪峰的Python进阶
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/%E5%AE%A2%E5%88%B6%E5%8C%96Butterfly/" title="客制化Butterfly"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-5.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="客制化Butterfly"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/%E5%AE%A2%E5%88%B6%E5%8C%96Butterfly/" title="客制化Butterfly">客制化Butterfly</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.036Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/">建站日记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Blog/">Blog</a></span></div><div class="content">博客视觉魔改
+首先在[Blogroot]/source/文件夹下新建两个文件夹css和js。
+在两个文件夹下分别创建一个custom.css和custom.js文件。
+它们分别存放自定义的CSS和JavaScript代码。
+然后在主题配置文件[Blogroot]/_config.butterfly.yml中找到插入外部代码部分，引入custom.css和custom.js：
+123456789inject:  head:    # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/custom.css&quot; media=&quot;defer&quot; onload=&quot;this.media=&#x27;all&#x27;&quot;&gt;  bottom:    # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt; ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="从零开始建博客"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/24/bg-3.webp" onerror="this.onerror=null;this.src='/img/404.webp'" alt="从零开始建博客"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="从零开始建博客">从零开始建博客</a><div class="article-meta-wrap"><span class="post-meta-date"><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T07:30:08.000Z" title="发表于 2024-05-07 15:30:08">2024-05-07</time><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-gengxin"></use></svg><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-31T08:41:39.035Z" title="更新于 2025-07-31 16:41:39">2025-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg><a class="article-meta__categories" href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/">建站日记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta-link">•</span><svg class="icon-mini faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian"></use></svg><a class="article-meta__tags" href="/tags/Blog/">Blog</a></span></div><div class="content">引言
+在数字化时代，个人博客已成为展示个人兴趣、技术专长和生活见解的重要平台。无论是技术分享、生活记录还是艺术展示，一个好的博客都可以助你一臂之力。
+Hexo 是一个快速、简单且强大的博客框架，使用 Node.js 构建，支持 Markdown 编辑。它的特点是轻量级、易于配置和扩展，非常适合个人和技术博客使用。配合上 Butterfly 主题，不仅可以让你的博客界面美观大方，还能通过丰富的插件支持增加更多实用功能。
+选择 Hexo 和 Butterfly 主题的理由主要包括：
+
+速度快：Hexo 生成静态文件，加载速度快。
+易于使用：简单的命令行操作即可管理全站。
+高度可定制：Butterfly 主题提供多种定制选项，易于调整样式和功能以适应个人喜好。
+强大的社区支持：广泛的插件生态和活跃的社区支持使得功能扩展和问题解决变得简单。
+
+在本教程中，我们将从零开始，逐步指导你使用 Hexo 和 Butterfly 主题搭建一个个人博客。无论你是技术新手还是有一定基础的开发者，只要跟随步骤，都能建立起一个属于自己的博客空间。
+准备工作
+在开始使用 Hexo 搭建博客之前，需要确保你的系统中 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tuchuang.voooe.cn/images/2024/04/17/avatar.webp" onerror="this.onerror=null;this.src='/img/load.gif'" alt="avatar"/></div><div class="author-info__name">猫野</div><div class="author-info__description">猫野的个人博客，记录生活和学习的点滴。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">归档</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/fumeng6" target="_blank" title="github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:6mengfu@gmail.com" target="_blank" title="邮箱"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-wangyuanjing"></use></svg></a><span>通知栏</span></div><div class="announcement_content"><center>主域名：<br><a href="https://fumeng6.github.io"><b><font color="#5ea6e5">fumeng6.github.io</font></b></a>&nbsp;</center></div><div id="welcome-info"></div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-yuhangyuan"></use></svg></a><span>博客信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">博客总字数 :</div><div class="item-count">49.3k</div></div><div class="webinfo-item"><div class="item-name">博客访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">博客总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-06T08:19:23.756Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 猫野</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到猫野的小世界🙂</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.8/lazyload.iife.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["清夜无尘，月色如银。酒斟时、须满十分。","浮名浮利，虚苦劳神。叹隙中驹，石中火，梦中身。","虽抱文章，开口谁亲。且陶陶、乐尽天真。","几时归去，作个闲人。对一张琴，一壶酒，一溪云。"])
+  } else {
+    document.getElementById("subtitle").textContent = "清夜无尘，月色如银。酒斟时、须满十分。"
+  }
+}
+typedJSFn.run(subtitleType)</script><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.8.0/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><canvas id="universe"></canvas><script src="/js/custom.js"></script><script src="/js/jquery.min.js"></script><script async data-pjax src="/js/welcome_info.js"></script><script async src="//at.alicdn.com/t/c/font_4350076_l4exg8pq80r.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInLeft');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInRight');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="/js/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body><script>window.bodyType = ''; 
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.setAttribute('body-type', window.bodyType || 'default');
+});
+
+// PJAX 或页面导航更新
+document.addEventListener('pjax:complete', function() {
+  var pageInfoElement = document.getElementById('page-info');
+  if (pageInfoElement) {
+    var bodyType = pageInfoElement.getAttribute('type-info');
+    document.body.setAttribute('body-type', bodyType || 'default');
+  } else {
+    document.body.setAttribute('body-type', 'default');
+  }
+});</script></html>
